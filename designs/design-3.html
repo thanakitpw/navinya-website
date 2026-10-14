@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAVINYA | Construction · Renovation · Interior</title>
+<meta name="description" content="รับรื้อถอนทุบตึก ก่อสร้าง รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700&family=Noto+Sans+Thai:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#06142E;
+  --navy:#0A2350;
+  --navy-2:#11306A;
+  --blue:#2F80ED;
+  --cyan:#56CCF2;
+  --pale:#E8F3FF;
+  --mist:#F4F8FD;
+  --white:#fff;
+  --ink:#0B1B36;
+  --text:#4C5B76;
+  --dim:#9DB0CF;
+  --border:rgba(157,176,207,.18);
+  --line-green:#06C755;
+  --grad:linear-gradient(120deg,var(--blue),var(--cyan));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans Thai',system-ui,sans-serif;color:var(--text);background:var(--white);line-height:1.75;overflow-x:hidden;font-weight:400}
+h1,h2,h3,h4,.bj{font-family:'Bai Jamjuree',sans-serif;line-height:1.2;color:var(--ink);font-weight:600}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:100%;max-width:1280px;margin:0 auto;padding:0 32px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+.btn{display:inline-flex;align-items:center;gap:12px;padding:16px 28px;font-family:'Bai Jamjuree';font-weight:600;font-size:15.5px;letter-spacing:.3px;transition:.3s;border:0;cursor:pointer;border-radius:4px}
+.btn-grad{background:var(--grad);color:#fff;box-shadow:0 12px 30px rgba(47,128,237,.35)}
+.btn-grad:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(47,128,237,.5)}
+.btn-line-o{border:1px solid rgba(255,255,255,.35);color:#fff}
+.btn-line-o:hover{background:#fff;color:var(--navy)}
+.btn-dark{background:var(--navy);color:#fff}
+.btn-dark:hover{background:var(--blue)}
+
+.kicker{display:inline-flex;align-items:center;gap:12px;font-family:'Bai Jamjuree';font-size:13.5px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);font-weight:600;margin-bottom:18px}
+.kicker::before{content:"";width:34px;height:1.5px;background:currentColor}
+.on-dark .kicker{color:var(--cyan)}
+
+/* ---------- Header ---------- */
+header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s}
+header .container{display:flex;align-items:center;justify-content:space-between;height:92px;gap:24px;transition:.35s}
+header.solid{background:rgba(6,20,46,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+header.solid .container{height:74px}
+.logo{display:flex;align-items:center;gap:12px;color:#fff;isolation:isolate}
+.logo .mark{width:42px;height:42px;border:1.5px solid var(--cyan);display:grid;place-items:center;font-family:'Bai Jamjuree';font-weight:700;font-size:20px;color:var(--cyan);position:relative}
+.logo .mark::after{content:"";position:absolute;right:-5px;bottom:-5px;width:42px;height:42px;border:1.5px solid rgba(86,204,242,.35);z-index:-1}
+.logo b{font-family:'Bai Jamjuree';font-weight:700;letter-spacing:5px;font-size:20px;display:block;line-height:1.1}
+.logo small{font-size:10.5px;letter-spacing:2.5px;color:var(--dim);text-transform:uppercase}
+nav.main{display:flex;gap:34px}
+nav.main a{color:#d6e2f5;font-size:15px;position:relative;padding:6px 0;font-weight:500}
+nav.main a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--cyan);transition:.3s}
+nav.main a:hover,nav.main a.active{color:#fff}
+nav.main a:hover::after,nav.main a.active::after{width:100%}
+.h-right{display:flex;align-items:center;gap:18px}
+.h-tel{color:#fff;font-family:'Bai Jamjuree';font-weight:600;display:flex;align-items:center;gap:10px}
+.h-tel .ic{color:var(--cyan)}
+.burger{display:none;background:none;border:1px solid var(--border);color:#fff;width:46px;height:46px;cursor:pointer;place-items:center}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100vh;background:var(--deep);color:#fff;overflow:hidden;display:flex;flex-direction:column}
+.hero-bg{position:absolute;inset:0 0 0 42%;}
+.hero-bg img{width:100%;height:100%;object-fit:cover}
+.hero-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--deep) 0%,rgba(6,20,46,.75) 30%,rgba(10,35,80,.35) 100%);z-index:1}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,var(--deep) 0%,transparent 35%);z-index:1}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(86,204,242,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(86,204,242,.05) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(90deg,#000 0%,transparent 60%)}
+.hero-glow{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(rgba(47,128,237,.35),transparent 65%);left:-200px;top:-150px}
+.hero-inner{position:relative;z-index:2;flex:1;display:flex;align-items:center;padding-top:120px;padding-bottom:40px}
+.hero h1{color:#fff;font-size:clamp(44px,7.4vw,108px);font-weight:700;line-height:1.02;letter-spacing:-1px;margin-bottom:28px}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.75)}
+.hero .th{font-family:'Bai Jamjuree';font-size:clamp(20px,2.2vw,28px);color:#fff;font-weight:500;margin-bottom:14px}
+.hero p{max-width:520px;color:#b9c8e2;font-size:17px;margin-bottom:38px;font-weight:300}
+.hero .actions{display:flex;gap:16px;flex-wrap:wrap}
+.hero-side{position:absolute;right:32px;top:50%;transform:translateY(-50%);z-index:3;display:flex;flex-direction:column;gap:6px;width:270px}
+.hero-side a{display:flex;align-items:center;padding:13px 18px;background:rgba(6,20,46,.55);backdrop-filter:blur(10px);border:1px solid var(--border);font-size:14.5px;color:#d6e2f5;transition:.3s}
+.hero-side a span{font-family:'Bai Jamjuree';color:var(--cyan);font-size:12.5px;margin-right:10px}
+.hero-side a:hover{background:var(--blue);color:#fff;border-color:var(--blue);padding-left:24px}
+.hero-side a:hover span{color:#fff}
+.hero-side a .ic{width:16px;height:16px;margin-left:auto}
+.hero-stats{position:relative;z-index:3;border-top:1px solid var(--border);background:rgba(6,20,46,.6);backdrop-filter:blur(8px)}
+.hero-stats .container{display:grid;grid-template-columns:repeat(4,1fr)}
+.hero-stats div{padding:28px 0;border-right:1px solid var(--border);padding-left:28px}
+.hero-stats div:first-child{padding-left:0}
+.hero-stats div:last-child{border-right:0}
+.hero-stats b{font-family:'Bai Jamjuree';font-size:40px;font-weight:600;color:#fff;line-height:1}
+.hero-stats b em{font-style:normal;color:var(--cyan)}
+.hero-stats div > span{display:block;color:var(--dim);font-size:14px;margin-top:6px}
+
+/* ---------- Section ---------- */
+section{padding:130px 0}
+.head-row{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:70px}
+.head-row h2,.h2{font-size:clamp(34px,4.4vw,58px);font-weight:600;letter-spacing:-.5px}
+.head-row p{font-size:17px;max-width:480px;justify-self:end}
+
+/* ---------- Services list ---------- */
+.svc-wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:60px;align-items:start}
+.svc-list{border-top:1px solid #DCE6F3}
+.svc-row{display:grid;grid-template-columns:70px 1fr 50px;gap:20px;align-items:center;padding:28px 0;border-bottom:1px solid #DCE6F3;cursor:pointer;position:relative;transition:.35s}
+.svc-row::before{content:"";position:absolute;left:0;top:-1px;height:2px;width:0;background:var(--grad);transition:.5s}
+.svc-row:hover::before,.svc-row.active::before{width:100%}
+.svc-row .no{font-family:'Bai Jamjuree';font-size:15px;color:var(--dim);font-weight:500;transition:.3s}
+.svc-row h3{font-size:clamp(22px,2.4vw,30px);font-weight:600;transition:.3s}
+.svc-row p{font-size:15px;max-height:0;opacity:0;overflow:hidden;transition:.45s;max-width:520px}
+.svc-row.active p{max-height:80px;opacity:1;margin-top:8px}
+.svc-row .go{width:50px;height:50px;border-radius:50%;border:1px solid #DCE6F3;display:grid;place-items:center;color:var(--ink);transition:.35s;transform:rotate(-45deg)}
+.svc-row.active .no{color:var(--blue)}
+.svc-row.active h3{color:var(--blue)}
+.svc-row.active .go{background:var(--blue);border-color:var(--blue);color:#fff;transform:rotate(0)}
+.svc-row .thumb{display:none}
+.svc-preview{position:sticky;top:110px;height:560px;overflow:hidden;background:var(--navy)}
+.svc-preview img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.08);transition:opacity .6s,transform 1.2s}
+.svc-preview img.show{opacity:1;transform:scale(1)}
+.svc-preview .cap{position:absolute;left:0;right:0;bottom:0;padding:30px;background:linear-gradient(transparent,rgba(6,20,46,.92));color:#fff;z-index:2}
+.svc-preview .cap small{font-family:'Bai Jamjuree';letter-spacing:3px;color:var(--cyan);font-size:12.5px}
+.svc-preview .cap b{display:block;font-family:'Bai Jamjuree';font-size:26px;font-weight:600}
+.svc-preview .corner{position:absolute;top:20px;right:20px;z-index:2;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);color:#fff;padding:8px 14px;font-family:'Bai Jamjuree';font-size:13px;border:1px solid rgba(255,255,255,.25)}
+
+/* ---------- Marquee ---------- */
+.big-marquee{padding:40px 0;overflow:hidden;background:var(--mist);border-top:1px solid #E3EBF5;border-bottom:1px solid #E3EBF5}
+.big-marquee .track{display:flex;gap:60px;width:max-content;animation:mq 40s linear infinite}
+.big-marquee span{font-family:'Bai Jamjuree';font-size:clamp(40px,6vw,84px);font-weight:700;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px #9DB7DE;display:flex;align-items:center;gap:60px;letter-spacing:-1px}
+.big-marquee span:nth-child(odd){color:var(--navy);-webkit-text-stroke:0}
+.big-marquee span::after{content:"";width:18px;height:18px;background:var(--grad);transform:rotate(45deg);flex-shrink:0}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* ---------- Projects ---------- */
+.projects{background:var(--deep);color:var(--dim);overflow:hidden}
+.projects h2{color:#fff}
+.projects .head-row p{color:var(--dim)}
+.proj-ctrl{display:flex;gap:10px;justify-self:end}
+.proj-ctrl button{width:56px;height:56px;border:1px solid var(--border);background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center;transition:.3s}
+.proj-ctrl button:hover{background:var(--blue);border-color:var(--blue)}
+.proj-ctrl button.prev .ic{transform:rotate(180deg)}
+.proj-track{display:flex;gap:28px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-left:max(32px,calc((100vw - 1280px)/2 + 32px));padding-right:32px;scroll-padding-left:max(32px,calc((100vw - 1280px)/2 + 32px))}
+.proj-track::-webkit-scrollbar{display:none}
+.proj{flex:0 0 min(520px,82vw);scroll-snap-align:start;position:relative}
+.proj .img{height:600px;overflow:hidden;position:relative}
+.proj .img img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.proj:hover .img img{transform:scale(1.06)}
+.proj .tag{position:absolute;top:20px;left:20px;background:var(--blue);color:#fff;font-family:'Bai Jamjuree';font-size:13px;padding:6px 14px;letter-spacing:1px}
+.proj .meta{display:flex;justify-content:space-between;align-items:flex-end;padding-top:22px;gap:20px}
+.proj h3{color:#fff;font-size:24px;margin-bottom:4px}
+.proj .meta small{color:var(--dim);font-size:14px}
+.proj .meta .go{width:48px;height:48px;border-radius:50%;border:1px solid var(--border);display:grid;place-items:center;color:#fff;transition:.3s;flex-shrink:0}
+.proj:hover .meta .go{background:var(--grad);border-color:transparent}
+.proj-bar{margin-top:46px;height:2px;background:var(--border);position:relative}
+.proj-bar i{position:absolute;left:0;top:0;height:100%;width:20%;background:var(--grad);transition:.2s}
+
+/* ---------- About ---------- */
+.about .container{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.about-media{position:relative}
+.about-media .a1{height:620px;width:82%;object-fit:cover}
+.about-media .a2{position:absolute;right:0;bottom:-50px;width:50%;height:300px;object-fit:cover;border:10px solid #fff}
+.about-media .big{position:absolute;left:-30px;top:40px;background:var(--grad);color:#fff;padding:26px 30px;font-family:'Bai Jamjuree'}
+.about-media .big b{font-size:64px;line-height:1;display:block;font-weight:700}
+.about-media .big span{font-size:14px;letter-spacing:1px}
+.about p.lead{font-size:18px;color:var(--ink);margin:22px 0 18px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin:36px 0 40px;padding-top:36px;border-top:1px solid #E3EBF5}
+.feat div .ic{width:34px;height:34px;color:var(--blue);margin-bottom:12px;stroke-width:1.5}
+.feat h4{font-size:19px;margin-bottom:6px}
+.feat p{font-size:15px}
+
+/* ---------- Process ---------- */
+.process{background:var(--mist)}
+.proc-grid{display:grid;grid-template-columns:repeat(4,1fr);border-left:1px solid #DCE6F3}
+.proc{padding:40px 32px 44px;border-right:1px solid #DCE6F3;border-top:1px solid #DCE6F3;border-bottom:1px solid #DCE6F3;background:#fff;position:relative;transition:.4s;overflow:hidden}
+.proc::before{content:"";position:absolute;inset:0;background:linear-gradient(160deg,var(--navy),var(--navy-2));opacity:0;transition:.4s}
+.proc>*{position:relative}
+.proc:hover::before{opacity:1}
+.proc:hover h3{color:#fff}
+.proc:hover p{color:var(--dim)}
+.proc .n{font-family:'Bai Jamjuree';font-size:15px;color:var(--blue);font-weight:600;letter-spacing:2px;margin-bottom:70px;display:flex;justify-content:space-between;align-items:center}
+.proc:hover .n{color:var(--cyan)}
+.proc .n .ic{width:38px;height:38px;stroke-width:1.4}
+.proc h3{font-size:23px;margin-bottom:10px;transition:.3s}
+.proc p{font-size:15px;transition:.3s}
+
+/* ---------- Testimonial ---------- */
+.testi{background:linear-gradient(140deg,var(--navy) 0%,var(--deep) 100%);color:#fff;position:relative;overflow:hidden}
+.testi::after{content:"“";position:absolute;right:4%;top:-60px;font-family:'Bai Jamjuree';font-size:460px;line-height:1;color:rgba(86,204,242,.07)}
+.testi .container{position:relative;z-index:1;display:grid;grid-template-columns:.8fr 1.6fr;gap:80px;align-items:center}
+.testi h2{color:#fff}
+.t-slides{position:relative;min-height:280px}
+.t-slide{position:absolute;inset:0;opacity:0;transform:translateY(20px);transition:.6s;pointer-events:none}
+.t-slide.active{opacity:1;transform:none;pointer-events:auto}
+.t-slide blockquote{font-family:'Bai Jamjuree';font-size:clamp(22px,2.4vw,31px);line-height:1.5;font-weight:400;color:#eaf2ff;margin-bottom:30px}
+.t-slide .who{display:flex;align-items:center;gap:16px}
+.t-slide .who span{width:54px;height:54px;border-radius:50%;background:var(--grad);display:grid;place-items:center;font-family:'Bai Jamjuree';font-weight:600;font-size:18px}
+.t-slide .who b{font-family:'Bai Jamjuree';display:block;font-size:18px}
+.t-slide .who small{color:var(--dim)}
+.t-nav{display:flex;gap:10px;margin-top:40px}
+.t-nav button{width:44px;height:4px;border:0;background:var(--border);cursor:pointer;transition:.3s}
+.t-nav button.active{background:var(--cyan);width:70px}
+
+/* ---------- Contact ---------- */
+.contact .container{display:grid;grid-template-columns:1fr 1.15fr;gap:80px}
+.c-info p.lead{font-size:17px;margin:20px 0 36px}
+.c-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid #E3EBF5}
+.c-item:first-of-type{border-top:1px solid #E3EBF5}
+.c-item .ib{width:52px;height:52px;background:var(--pale);color:var(--blue);display:grid;place-items:center;flex-shrink:0}
+.c-item small{display:block;font-size:13px;letter-spacing:1px;color:var(--dim);font-family:'Bai Jamjuree';text-transform:uppercase}
+.c-item b{font-family:'Bai Jamjuree';font-size:20px;color:var(--ink);font-weight:600}
+.c-item.line .ib{background:#E6F9EE;color:var(--line-green)}
+form.c-form{background:var(--deep);padding:52px 48px;color:#fff;position:relative}
+form.c-form::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--grad)}
+form.c-form h3{color:#fff;font-size:30px;margin-bottom:6px}
+form.c-form > p{color:var(--dim);margin-bottom:32px}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:22px 24px}
+.fg .full{grid-column:1/-1}
+.fg label{display:block;font-size:13px;color:var(--dim);margin-bottom:6px;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(157,176,207,.35);color:#fff;font-family:inherit;font-size:16px;padding:10px 0;transition:.3s;border-radius:0}
+.fg select option{color:var(--ink)}
+.fg input::placeholder,.fg textarea::placeholder{color:#5f7398}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:0;border-color:var(--cyan)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{margin:0}
+.chips input{display:none}
+.chips span{display:inline-block;padding:8px 14px;border:1px solid var(--border);font-size:14px;color:#d6e2f5;cursor:pointer;transition:.2s}
+.chips input:checked+span{background:var(--blue);border-color:var(--blue);color:#fff}
+form.c-form .btn{margin-top:34px}
+
+/* ---------- Footer ---------- */
+footer{background:var(--deep);color:var(--dim);padding-top:100px;position:relative;overflow:hidden}
+.ft-cta{display:flex;justify-content:space-between;align-items:center;gap:30px;padding-bottom:70px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.ft-cta h2{color:#fff;font-size:clamp(32px,4.6vw,64px);font-weight:600;max-width:760px;letter-spacing:-.5px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding:60px 0}
+.ft-grid p{font-size:15px;margin-top:20px;max-width:320px}
+footer h4{color:#fff;font-size:15px;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px;font-weight:600}
+footer ul{list-style:none;display:grid;gap:10px;font-size:15px}
+footer ul a:hover{color:var(--cyan)}
+.ft-bottom{border-top:1px solid var(--border);padding:24px 0;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px}
+.ft-bottom .soc{display:flex;gap:22px}
+.ft-bottom .soc a:hover{color:#fff}
+.ft-word{font-family:'Bai Jamjuree';font-weight:700;font-size:clamp(70px,17vw,250px);line-height:.8;letter-spacing:-4px;color:transparent;-webkit-text-stroke:1px rgba(86,204,242,.15);text-align:center;margin-top:20px;user-select:none;white-space:nowrap}
+
+/* ---------- Floating ---------- */
+.float{position:fixed;right:24px;bottom:24px;z-index:60;display:flex;flex-direction:column;gap:10px}
+.float a{width:56px;height:56px;display:grid;place-items:center;color:#fff;box-shadow:0 10px 26px rgba(6,20,46,.35);transition:.25s;font-family:'Bai Jamjuree';font-weight:700;font-size:13px}
+.float a:hover{transform:translateY(-3px)}
+.float .l{background:var(--line-green)}
+.float .p{background:var(--grad)}
+
+.mobile-nav{position:fixed;inset:0;z-index:100;background:var(--deep);padding:28px 24px;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:.35s}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav .x{align-self:flex-end;background:none;border:1px solid var(--border);color:#fff;width:46px;height:46px;font-size:26px;cursor:pointer}
+.mobile-nav a{font-family:'Bai Jamjuree';font-size:28px;color:#fff;padding:14px 0;border-bottom:1px solid var(--border)}
+
+.reveal{opacity:0;transform:translateY(36px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1180px){
+  nav.main,.h-tel{display:none}
+  .burger{display:grid}
+  .hero-side{display:none}
+  .hero-bg{inset:0}
+  .hero-bg::before{background:linear-gradient(90deg,var(--deep) 0%,rgba(6,20,46,.8) 50%,rgba(10,35,80,.5) 100%)}
+  .svc-wrap{grid-template-columns:1fr}
+  .svc-preview{display:none}
+  .svc-row{grid-template-columns:110px 1fr 50px}
+  .svc-row .no{display:none}
+  .svc-row .thumb{display:block;width:110px;height:80px;object-fit:cover;grid-row:1}
+  .about .container,.testi .container,.contact .container{grid-template-columns:1fr;gap:70px}
+  .proc-grid{grid-template-columns:1fr 1fr}
+  .ft-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .container{padding:0 16px}
+  section{padding:84px 0}
+  header .container{height:72px}
+  .h-right .btn{display:none}
+  .hero-inner{padding-top:100px}
+  .hero h1{font-size:clamp(40px,13vw,64px)}
+  .hero-stats .container{grid-template-columns:1fr 1fr}
+  .hero-stats div{padding:20px 0 20px 16px!important;border-bottom:1px solid var(--border)}
+  .hero-stats div:nth-child(2n){border-right:0}
+  .hero-stats b{font-size:30px}
+  .head-row{grid-template-columns:1fr;gap:20px;margin-bottom:44px}
+  .head-row p,.proj-ctrl{justify-self:start}
+  .svc-row{grid-template-columns:76px 1fr 40px;gap:14px;padding:20px 0}
+  .svc-row .thumb{width:76px;height:64px}
+  .svc-row .go{width:40px;height:40px}
+  .svc-row p{display:none}
+  .proj-track{padding-left:16px;padding-right:16px;scroll-padding-left:16px;gap:16px}
+  .proj .img{height:420px}
+  .about-media .a1{height:420px;width:88%}
+  .about-media .a2{height:200px;bottom:-30px;border-width:6px}
+  .about-media .big{left:-6px;top:20px;padding:18px 20px}
+  .about-media .big b{font-size:44px}
+  .feat{grid-template-columns:1fr}
+  .proc-grid{grid-template-columns:1fr}
+  .proc .n{margin-bottom:34px}
+  .t-slides{min-height:360px}
+  form.c-form{padding:36px 22px}
+  .fg{grid-template-columns:1fr}
+  .ft-grid{grid-template-columns:1fr}
+  .float a{width:50px;height:50px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+  <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7z"/><path d="m2 17 10 5 10-5M2 12l10 5 10-5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+</svg>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="container">
+    <a href="#" class="logo"><span class="mark">N</span><span><b>NAVINYA</b><small>Construction &amp; Interior</small></span></a>
+    <nav class="main">
+      <a href="#" class="active">หน้าแรก</a>
+      <a href="#services">บริการ</a>
+      <a href="#projects">ผลงาน</a>
+      <a href="#about">เกี่ยวกับเรา</a>
+      <a href="#contact">ติดต่อเรา</a>
+    </nav>
+    <div class="h-right">
+      <a href="tel:0800000000" class="h-tel"><svg class="ic"><use href="#i-phone"/></svg>08X-XXX-XXXX</a>
+      <a href="#contact" class="btn btn-grad">ขอใบเสนอราคา</a>
+      <button class="burger" aria-label="เมนู"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <button class="x" aria-label="ปิด">&times;</button>
+  <a href="#">หน้าแรก</a>
+  <a href="#services">บริการ</a>
+  <a href="#projects">ผลงาน</a>
+  <a href="#about">เกี่ยวกับเรา</a>
+  <a href="#contact">ติดต่อเรา</a>
+</div>
+
+<!-- ========== HERO ========== -->
+<section class="hero on-dark" style="padding:0">
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=75" alt="บ้านสไตล์โมเดิร์นยามค่ำ"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="container">
+      <div class="kicker reveal">รับเหมาก่อสร้างครบวงจร</div>
+      <h1 class="reveal">BUILD.<br><span class="outline">RENEW.</span><br><span class="grad-text">REFINE.</span></h1>
+      <div class="th reveal">รื้อถอน · ก่อสร้าง · รีโนเวท · ตกแต่ง จบในทีมเดียว</div>
+      <p class="reveal">NAVINYA ดูแลทุกขั้นตอนตั้งแต่ทุบตึกเก่า ขึ้นโครงสร้างใหม่ ไปจนถึงงานบิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน ด้วยมาตรฐานวิศวกรรม</p>
+      <div class="actions reveal">
+        <a href="#contact" class="btn btn-grad">เริ่มโปรเจกต์ของคุณ <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a href="#projects" class="btn btn-line-o">ดูผลงาน</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-side">
+    <a href="#services"><span>01</span>งานรื้อถอนทุบตึก<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a href="#services"><span>02</span>งานก่อสร้าง<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a href="#services"><span>03</span>งานรีโนเวท<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a href="#services"><span>04</span>งานต่อเติม<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a href="#services"><span>05</span>งานบิ้วอิน<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a href="#services"><span>06</span>ผ้าม่าน วอลเปเปอร์<svg class="ic"><use href="#i-arrow"/></svg></a>
+    <a href="#services"><span>07</span>ประตูม้วน<svg class="ic"><use href="#i-arrow"/></svg></a>
+  </div>
+  <div class="hero-stats">
+    <div class="container">
+      <div><b><span data-count="15">0</span><em>+</em></b><span>ปีประสบการณ์</span></div>
+      <div><b><span data-count="1200">0</span><em>+</em></b><span>โครงการที่ส่งมอบ</span></div>
+      <div><b><span data-count="50">0</span><em>+</em></b><span>วิศวกรและช่างประจำ</span></div>
+      <div><b>7</b><span>บริการในทีมเดียว</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section id="services">
+  <div class="container">
+    <div class="head-row">
+      <div class="reveal"><div class="kicker">Our Services</div><h2>บริการของเรา<br>ครอบคลุม <span class="grad-text">ทุกงานอาคาร</span></h2></div>
+      <p class="reveal">วางมือบนแต่ละบริการเพื่อดูรายละเอียด ทุกงานดำเนินการโดยทีมของ NAVINYA เอง ตั้งแต่สำรวจหน้างานจนถึงส่งมอบ</p>
+    </div>
+    <div class="svc-wrap">
+      <div class="svc-list">
+        <a href="#" class="svc-row active" data-img="0"><span class="no">/01</span><img class="thumb" src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>งานรื้อถอนทุบตึก</h3><p>รื้อถอนบ้าน อาคาร โรงงาน ด้วยเครื่องจักรหนัก ขนย้ายเศษวัสดุ เคลียร์พื้นที่พร้อมก่อสร้างใหม่</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a href="#" class="svc-row" data-img="1"><span class="no">/02</span><img class="thumb" src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>งานก่อสร้าง</h3><p>บ้าน อาคารพาณิชย์ โกดัง โรงงาน ตั้งแต่ฐานรากจนส่งมอบ ควบคุมโดยวิศวกร</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a href="#" class="svc-row" data-img="2"><span class="no">/03</span><img class="thumb" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>งานรีโนเวท</h3><p>ปรับปรุงบ้านเก่า คอนโด ร้านค้า ออฟฟิศ ทั้งงานโครงสร้าง งานระบบ และงานตกแต่ง</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a href="#" class="svc-row" data-img="3"><span class="no">/04</span><img class="thumb" src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>งานต่อเติม</h3><p>ต่อเติมครัว โรงจอดรถ ห้องนอน ชั้นลอย กันสาด กลมกลืนกับตัวบ้านเดิม ถูกหลักวิศวกรรม</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a href="#" class="svc-row" data-img="4"><span class="no">/05</span><img class="thumb" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>งานบิ้วอิน</h3><p>ชุดครัว ตู้เสื้อผ้า ตู้ทีวี ตู้โชว์ ผลิตตามขนาดพื้นที่จริง วัสดุเกรดดี</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a href="#" class="svc-row" data-img="5"><span class="no">/06</span><img class="thumb" src="https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>ผ้าม่าน วอลเปเปอร์</h3><p>ม่านจีบ ม่านลอน ม่านม้วน มู่ลี่ และวอลเปเปอร์หลากลาย วัดพื้นที่และติดตั้งถึงบ้าน</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+        <a href="#" class="svc-row" data-img="6"><span class="no">/07</span><img class="thumb" src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=300&q=60" alt=""><div><h3>ประตูม้วน</h3><p>ประตูม้วนเหล็ก สแตนเลส และระบบไฟฟ้า สำหรับบ้าน ร้านค้า โกดัง ติดตั้งและซ่อมบำรุง</p></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></a>
+      </div>
+      <div class="svc-preview reveal">
+        <img class="show" src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1000&q=75" alt="">
+        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=75" alt="">
+        <span class="corner">NAVINYA SERVICE</span>
+        <div class="cap"><small>SERVICE /<span class="cap-no">01</span></small><b class="cap-title">งานรื้อถอนทุบตึก</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MARQUEE ========== -->
+<div class="big-marquee" aria-hidden="true">
+  <div class="track">
+    <span>DEMOLITION</span><span>CONSTRUCTION</span><span>RENOVATION</span><span>EXTENSION</span><span>BUILT-IN</span><span>CURTAIN &amp; WALLPAPER</span><span>ROLLER SHUTTER</span>
+    <span>DEMOLITION</span><span>CONSTRUCTION</span><span>RENOVATION</span><span>EXTENSION</span><span>BUILT-IN</span><span>CURTAIN &amp; WALLPAPER</span><span>ROLLER SHUTTER</span>
+  </div>
+</div>
+
+<!-- ========== PROJECTS ========== -->
+<section class="projects on-dark" id="projects">
+  <div class="container">
+    <div class="head-row">
+      <div class="reveal"><div class="kicker">Featured Projects</div><h2>ผลงานที่เรา<br><span class="grad-text">ภูมิใจนำเสนอ</span></h2></div>
+      <div class="proj-ctrl reveal"><button class="prev" aria-label="ก่อนหน้า"><svg class="ic"><use href="#i-arrow"/></svg></button><button class="next" aria-label="ถัดไป"><svg class="ic"><use href="#i-arrow"/></svg></button></div>
+    </div>
+  </div>
+  <div class="proj-track">
+    <a href="#" class="proj"><div class="img"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1000&q=75" alt=""><span class="tag">RENOVATION</span></div><div class="meta"><div><h3>รีโนเวทบ้านเดี่ยว เปิดวิวสระว่ายน้ำ</h3><small>บ้านพักอาศัย · กรุงเทพฯ</small></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></div></a>
+    <a href="#" class="proj"><div class="img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1000&q=75" alt=""><span class="tag">CONSTRUCTION</span></div><div class="meta"><div><h3>บ้านโมเดิร์น 2 ชั้น พร้อมโรงจอดรถ</h3><small>ก่อสร้างใหม่ · นนทบุรี</small></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></div></a>
+    <a href="#" class="proj"><div class="img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=75" alt=""><span class="tag">BUILT-IN</span></div><div class="meta"><div><h3>บิ้วอินห้องนั่งเล่น คอนโดหรู</h3><small>ตกแต่งภายใน · สาทร</small></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></div></a>
+    <a href="#" class="proj"><div class="img"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1000&q=75" alt=""><span class="tag">DEMOLITION</span></div><div class="meta"><div><h3>รื้อถอนอาคารพาณิชย์ 4 ชั้น</h3><small>รื้อถอน · สมุทรปราการ</small></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></div></a>
+    <a href="#" class="proj"><div class="img"><img src="https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=1000&q=75" alt=""><span class="tag">CURTAIN</span></div><div class="meta"><div><h3>ผ้าม่านทึบแสงและวอลเปเปอร์ห้องนอน</h3><small>ตกแต่ง · ปทุมธานี</small></div><span class="go"><svg class="ic"><use href="#i-arrow"/></svg></span></div></a>
+  </div>
+  <div class="container"><div class="proj-bar"><i></i></div></div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-media reveal">
+      <img class="a1" src="https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9?auto=format&fit=crop&w=900&q=75" alt="วิศวกรตรวจหน้างาน">
+      <img class="a2" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=70" alt="ตรวจแบบก่อสร้าง">
+      <div class="big"><b>15+</b><span>YEARS OF EXPERIENCE</span></div>
+    </div>
+    <div class="reveal">
+      <div class="kicker">About NAVINYA</div>
+      <h2 class="h2">มาตรฐานวิศวกรรม<br>ในทุกรายละเอียด</h2>
+      <p class="lead">เราเชื่อว่างานก่อสร้างที่ดีเริ่มจากการวางแผนที่ดี ทุกโครงการของ NAVINYA จึงผ่านการสำรวจ ออกแบบ และควบคุมงานโดยวิศวกร</p>
+      <p>ด้วยทีมช่างประจำในทุกสายงาน ตั้งแต่งานรื้อถอน งานโครงสร้าง ไปจนถึงงานตกแต่งภายใน ลูกค้าจึงได้งานที่ต่อเนื่อง ไม่สะดุด และมีผู้รับผิดชอบเพียงรายเดียว</p>
+      <div class="feat">
+        <div><svg class="ic"><use href="#i-users"/></svg><h4>ทีมช่างประจำ</h4><p>มีหัวหน้างานควบคุมทุกไซต์ ไม่ใช้ช่างรายวัน</p></div>
+        <div><svg class="ic"><use href="#i-file"/></svg><h4>ราคาโปร่งใส</h4><p>ใบเสนอราคาแจกแจงทุกรายการ จ่ายตามงวดงาน</p></div>
+        <div><svg class="ic"><use href="#i-shield"/></svg><h4>รับประกันผลงาน</h4><p>ดูแลหลังส่งมอบตามเงื่อนไขในสัญญา</p></div>
+        <div><svg class="ic"><use href="#i-clock"/></svg><h4>ตรงต่อเวลา</h4><p>ไทม์ไลน์ชัดเจน อัปเดตงานผ่าน LINE ทุกสัปดาห์</p></div>
+      </div>
+      <a href="#contact" class="btn btn-dark">นัดสำรวจหน้างาน <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="process">
+  <div class="container">
+    <div class="head-row">
+      <div class="reveal"><div class="kicker">How We Work</div><h2>4 ขั้นตอน<br><span class="grad-text">สู่งานที่สมบูรณ์</span></h2></div>
+      <p class="reveal">กระบวนการทำงานที่ชัดเจน ทำให้ทุกโครงการควบคุมได้ทั้งคุณภาพ งบประมาณ และเวลา</p>
+    </div>
+    <div class="proc-grid">
+      <div class="proc reveal"><div class="n">STEP 01<svg class="ic"><use href="#i-chat"/></svg></div><h3>ปรึกษา &amp; สำรวจ</h3><p>รับฟังความต้องการ ลงพื้นที่วัดหน้างานจริง</p></div>
+      <div class="proc reveal"><div class="n">STEP 02<svg class="ic"><use href="#i-ruler"/></svg></div><h3>ออกแบบ &amp; เสนอราคา</h3><p>จัดทำแบบและใบเสนอราคาแจกแจงทุกรายการ</p></div>
+      <div class="proc reveal"><div class="n">STEP 03<svg class="ic"><use href="#i-layers"/></svg></div><h3>ดำเนินงาน</h3><p>ลงมือตามแผน วิศวกรควบคุม รายงานความคืบหน้า</p></div>
+      <div class="proc reveal"><div class="n">STEP 04<svg class="ic"><use href="#i-key"/></svg></div><h3>ส่งมอบ &amp; ดูแล</h3><p>ตรวจรับงานร่วมกัน พร้อมบริการหลังส่งมอบ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIAL ========== -->
+<section class="testi on-dark">
+  <div class="container">
+    <div class="reveal"><div class="kicker">Testimonials</div><h2 class="h2">เสียงจาก<br><span class="grad-text">ลูกค้าของเรา</span></h2></div>
+    <div class="reveal">
+      <div class="t-slides">
+        <div class="t-slide active"><blockquote>“จ้างรื้อบ้านเก่าแล้วสร้างใหม่ในเจ้าเดียว ไม่ต้องหาผู้รับเหมาหลายเจ้า งานเสร็จตามกำหนด ทีมงานสุภาพและเก็บงานเรียบร้อยมาก”</blockquote><div class="who"><span>ก</span><div><b>คุณ ก. (ตัวอย่างรีวิว)</b><small>บ้านเดี่ยว · นนทบุรี</small></div></div></div>
+        <div class="t-slide"><blockquote>“รีโนเวทคอนโดพร้อมบิ้วอินทั้งห้อง ทีมงานส่งรูปอัปเดตใน LINE ตลอด ผลงานเนี้ยบกว่าที่คาดไว้ แนะนำต่อให้เพื่อนแล้ว”</blockquote><div class="who"><span>ส</span><div><b>คุณ ส. (ตัวอย่างรีวิว)</b><small>คอนโด · กรุงเทพฯ</small></div></div></div>
+        <div class="t-slide"><blockquote>“ติดตั้งประตูม้วนไฟฟ้าที่โกดัง มาวัดหน้างานเร็ว ราคาชัดเจนตั้งแต่แรก ติดตั้งเสร็จภายในวันเดียว”</blockquote><div class="who"><span>ป</span><div><b>คุณ ป. (ตัวอย่างรีวิว)</b><small>โกดังสินค้า · สมุทรปราการ</small></div></div></div>
+      </div>
+      <div class="t-nav"><button class="active" aria-label="รีวิว 1"></button><button aria-label="รีวิว 2"></button><button aria-label="รีวิว 3"></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="c-info reveal">
+      <div class="kicker">Contact Us</div>
+      <h2 class="h2">เริ่มต้นโปรเจกต์<br><span class="grad-text">กับเราวันนี้</span></h2>
+      <p class="lead">ส่งรายละเอียดงานหรือรูปหน้างาน ทีมงานประเมินเบื้องต้นและติดต่อกลับภายใน 24 ชั่วโมง</p>
+      <a href="tel:0800000000" class="c-item"><span class="ib"><svg class="ic"><use href="#i-phone"/></svg></span><span><small>Call</small><b>08X-XXX-XXXX</b></span></a>
+      <a href="#" class="c-item line"><span class="ib"><svg class="ic"><use href="#i-chat"/></svg></span><span><small>LINE Official</small><b>@navinya</b></span></a>
+      <a href="mailto:contact@navinya.com" class="c-item"><span class="ib"><svg class="ic"><use href="#i-mail"/></svg></span><span><small>Email</small><b>contact@navinya.com</b></span></a>
+      <a href="#" class="c-item"><span class="ib"><svg class="ic"><use href="#i-pin"/></svg></span><span><small>Office</small><b>ดูแผนที่ Google Maps</b></span></a>
+    </div>
+    <form class="c-form reveal" onsubmit="event.preventDefault();this.querySelector('button').firstChild.textContent='ส่งข้อมูลเรียบร้อย '">
+      <h3>ขอใบเสนอราคา</h3>
+      <p>กรอกข้อมูลด้านล่าง เราจะติดต่อกลับโดยเร็วที่สุด</p>
+      <div class="fg">
+        <div><label for="n">ชื่อ - นามสกุล</label><input id="n" placeholder="ชื่อของคุณ" required></div>
+        <div><label for="t">เบอร์โทรศัพท์</label><input id="t" type="tel" placeholder="08X-XXX-XXXX" required></div>
+        <div class="full"><label>บริการที่สนใจ (เลือกได้หลายข้อ)</label>
+          <div class="chips">
+            <label><input type="checkbox"><span>รื้อถอนทุบตึก</span></label>
+            <label><input type="checkbox"><span>ก่อสร้าง</span></label>
+            <label><input type="checkbox"><span>รีโนเวท</span></label>
+            <label><input type="checkbox"><span>ต่อเติม</span></label>
+            <label><input type="checkbox"><span>บิ้วอิน</span></label>
+            <label><input type="checkbox"><span>ผ้าม่าน วอลเปเปอร์</span></label>
+            <label><input type="checkbox"><span>ประตูม้วน</span></label>
+          </div>
+        </div>
+        <div><label for="loc">สถานที่หน้างาน</label><input id="loc" placeholder="เขต / จังหวัด"></div>
+        <div><label for="b">งบประมาณโดยประมาณ</label><select id="b"><option>ไม่ระบุ</option><option>ต่ำกว่า 100,000 บาท</option><option>100,000 - 500,000 บาท</option><option>500,000 - 2,000,000 บาท</option><option>มากกว่า 2,000,000 บาท</option></select></div>
+        <div class="full"><label for="d">รายละเอียดเพิ่มเติม</label><textarea id="d" rows="3" placeholder="เล่าให้เราฟังเกี่ยวกับงานของคุณ"></textarea></div>
+      </div>
+      <button class="btn btn-grad" type="submit">ส่งข้อมูล <svg class="ic"><use href="#i-arrow"/></svg></button>
+    </form>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container">
+    <div class="ft-cta">
+      <h2>มีโปรเจกต์ในใจ? <span class="grad-text">คุยกับเราได้เลย</span></h2>
+      <a href="#contact" class="btn btn-grad">ปรึกษาฟรี <svg class="ic"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="ft-grid">
+      <div>
+        <a href="#" class="logo"><span class="mark">N</span><span><b>NAVINYA</b><small>Construction &amp; Interior</small></span></a>
+        <p>รับเหมาก่อสร้าง รื้อถอน รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน ครบวงจรในที่เดียว</p>
+      </div>
+      <div><h4>Services</h4><ul><li><a href="#">งานรื้อถอนทุบตึก</a></li><li><a href="#">งานก่อสร้าง</a></li><li><a href="#">งานรีโนเวท</a></li><li><a href="#">งานต่อเติม</a></li></ul></div>
+      <div><h4>&nbsp;</h4><ul><li><a href="#">งานบิ้วอิน</a></li><li><a href="#">ผ้าม่าน วอลเปเปอร์</a></li><li><a href="#">ประตูม้วน</a></li></ul></div>
+      <div><h4>Contact</h4><ul><li>08X-XXX-XXXX</li><li>LINE: @navinya</li><li>contact@navinya.com</li><li>จันทร์ - เสาร์ 08:00 - 18:00</li></ul></div>
+    </div>
+    <div class="ft-bottom"><span>© 2026 NAVINYA. All rights reserved.</span><div class="soc"><a href="#">Facebook</a><a href="#">LINE</a><a href="#">TikTok</a><a href="#">YouTube</a></div></div>
+  </div>
+  <div class="ft-word" aria-hidden="true">NAVINYA</div>
+</footer>
+
+<div class="float">
+  <a href="#" class="l" aria-label="LINE">LINE</a>
+  <a href="tel:0800000000" class="p" aria-label="โทร"><svg class="ic"><use href="#i-phone"/></svg></a>
+</div>
+
+<script>
+// Header
+const hdr=document.querySelector('header');
+const onScroll=()=>hdr.classList.toggle('solid',scrollY>40);
+addEventListener('scroll',onScroll);onScroll();
+
+// Mobile nav
+const mnav=document.querySelector('.mobile-nav');
+document.querySelector('.burger').onclick=()=>mnav.classList.add('open');
+mnav.addEventListener('click',e=>{if(e.target.closest('.x')||e.target.closest('a'))mnav.classList.remove('open')});
+
+// Services hover preview
+const rows=[...document.querySelectorAll('.svc-row')];
+const imgs=[...document.querySelectorAll('.svc-preview img')];
+const capNo=document.querySelector('.cap-no'),capTitle=document.querySelector('.cap-title');
+rows.forEach((r,i)=>r.addEventListener('mouseenter',()=>{
+  rows.forEach(x=>x.classList.remove('active'));r.classList.add('active');
+  imgs.forEach((im,j)=>im.classList.toggle('show',i===j));
+  capNo.textContent=String(i+1).padStart(2,'0');capTitle.textContent=r.querySelector('h3').textContent;
+}));
+
+// Projects scroller
+const track=document.querySelector('.proj-track'),bar=document.querySelector('.proj-bar i');
+const step=()=>track.querySelector('.proj').offsetWidth+28;
+document.querySelector('.proj-ctrl .next').onclick=()=>track.scrollBy({left:step(),behavior:'smooth'});
+document.querySelector('.proj-ctrl .prev').onclick=()=>track.scrollBy({left:-step(),behavior:'smooth'});
+const upd=()=>{const max=track.scrollWidth-track.clientWidth;const vis=track.clientWidth/track.scrollWidth;bar.style.width=(vis*100)+'%';bar.style.left=(max?track.scrollLeft/max*(100-vis*100):0)+'%'};
+track.addEventListener('scroll',upd);addEventListener('resize',upd);upd();
+
+// Testimonials
+const ts=[...document.querySelectorAll('.t-slide')],tb=[...document.querySelectorAll('.t-nav button')];let ti=0,tt;
+function showT(n){ts[ti].classList.remove('active');tb[ti].classList.remove('active');ti=n%ts.length;ts[ti].classList.add('active');tb[ti].classList.add('active');clearInterval(tt);tt=setInterval(()=>showT(ti+1),7000)}
+tb.forEach((b,i)=>b.onclick=()=>showT(i));showT(0);
+
+// Reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count,t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1800,1);el.textContent=Math.floor(end*(1-Math.pow(1-p,3))).toLocaleString();if(p<1)requestAnimationFrame(tick)})(t0);
+  cio.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>

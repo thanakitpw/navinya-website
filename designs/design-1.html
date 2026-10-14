@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAVINYA | รับเหมาก่อสร้าง รื้อถอน รีโนเวท ครบวงจร</title>
+<meta name="description" content="รับรื้อถอนทุบตึก ก่อสร้าง รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน ครบจบในที่เดียว">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2A5B;
+  --navy-2:#0F3A7A;
+  --blue:#1456C8;
+  --sky:#3BA3F0;
+  --sky-2:#7CC4F8;
+  --ice:#EAF4FF;
+  --ice-2:#F5FAFF;
+  --ink:#10213F;
+  --muted:#5B6B86;
+  --line:#DCE7F5;
+  --white:#fff;
+  --line-green:#06C755;
+  --radius:14px;
+  --shadow:0 10px 30px rgba(11,42,91,.10);
+  --shadow-lg:0 20px 50px rgba(11,42,91,.18);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Prompt',system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.65;font-weight:400;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:999px;font-weight:500;font-size:15px;transition:.25s;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:var(--navy);transform:translateY(-2px)}
+.btn-sky{background:var(--sky);color:#fff}
+.btn-sky:hover{background:#2590e0;transform:translateY(-2px)}
+.btn-outline{border-color:#fff;color:#fff}
+.btn-outline:hover{background:#fff;color:var(--navy)}
+
+/* ---------- Topbar ---------- */
+.topbar{background:var(--navy);color:#cfe0f7;font-size:13.5px}
+.topbar .container{display:flex;justify-content:space-between;align-items:center;height:42px;gap:16px}
+.topbar .info{display:flex;gap:24px;flex-wrap:wrap}
+.topbar .info span{display:flex;align-items:center;gap:6px}
+.topbar .ic{width:15px;height:15px;color:var(--sky-2)}
+.topbar .social{display:flex;gap:14px}
+.topbar .social a:hover{color:#fff}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:50;background:#fff;box-shadow:0 2px 16px rgba(11,42,91,.06)}
+header .container{display:flex;align-items:center;justify-content:space-between;height:78px;gap:20px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{width:46px;height:46px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--sky));display:grid;place-items:center;color:#fff;font-weight:700;font-size:22px;box-shadow:0 6px 16px rgba(20,86,200,.35)}
+.logo-text b{display:block;font-size:22px;letter-spacing:2px;color:var(--navy);line-height:1.1}
+.logo-text small{font-size:12px;color:var(--muted)}
+nav.main ul{display:flex;list-style:none;gap:4px}
+nav.main a{padding:10px 14px;border-radius:8px;font-size:15px;font-weight:500;color:var(--ink);transition:.2s}
+nav.main a:hover,nav.main a.active{color:var(--blue);background:var(--ice)}
+.header-cta{display:flex;align-items:center;gap:12px}
+.burger{display:none;background:none;border:0;color:var(--navy);cursor:pointer;padding:6px}
+.burger .ic{width:28px;height:28px}
+
+/* ---------- Hero slider ---------- */
+.hero{position:relative;height:640px;overflow:hidden;background:var(--navy)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 7s ease}
+.slide.active img{transform:scale(1)}
+.slide::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,42,91,.92) 0%,rgba(11,42,91,.70) 45%,rgba(20,86,200,.15) 100%)}
+.slide-content{position:absolute;inset:0;z-index:2;display:flex;align-items:center}
+.slide-content .container{color:#fff}
+.slide-content .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(59,163,240,.2);border:1px solid rgba(124,196,248,.5);color:#cfe8ff;padding:6px 16px;border-radius:999px;font-size:14px;margin-bottom:20px}
+.slide-content h1,.slide-content h2{font-size:clamp(32px,5vw,58px);line-height:1.2;font-weight:700;max-width:680px;margin-bottom:18px}
+.slide-content h1 span,.slide-content h2 span{color:var(--sky-2)}
+.slide-content p{font-size:18px;max-width:560px;color:#dbe8fb;margin-bottom:30px;font-weight:300}
+.slide-content .actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-dots{position:absolute;bottom:110px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:10px}
+.hero-dots button{width:12px;height:12px;border-radius:999px;border:0;background:rgba(255,255,255,.45);cursor:pointer;transition:.3s}
+.hero-dots button.active{width:36px;background:var(--sky)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;transition:.2s}
+.hero-arrow:hover{background:var(--sky);border-color:var(--sky)}
+.hero-arrow.prev{left:24px}.hero-arrow.next{right:24px}
+.hero-arrow.prev .ic{transform:rotate(180deg)}
+
+/* ---------- Feature strip ---------- */
+.feature-strip{position:relative;z-index:6;margin-top:-70px}
+.feature-strip .grid{display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);overflow:hidden}
+.feature-strip .item{display:flex;gap:16px;padding:28px 26px;align-items:flex-start;border-right:1px solid var(--line)}
+.feature-strip .item:last-child{border-right:0}
+.feature-strip .item:hover{background:var(--ice-2)}
+.f-icon{width:52px;height:52px;border-radius:14px;background:var(--ice);color:var(--blue);display:grid;place-items:center;flex-shrink:0}
+.f-icon .ic{width:26px;height:26px}
+.feature-strip h3{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.feature-strip p{font-size:14px;color:var(--muted);line-height:1.5}
+
+/* ---------- Section base ---------- */
+section{padding:96px 0}
+.sec-head{text-align:center;max-width:720px;margin:0 auto 54px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:var(--blue);font-weight:600;font-size:15px;letter-spacing:.5px;margin-bottom:10px}
+.eyebrow::before,.eyebrow::after{content:"";width:28px;height:2px;background:var(--sky)}
+.sec-head h2{font-size:clamp(28px,3.6vw,40px);line-height:1.3;color:var(--navy);font-weight:700;margin-bottom:14px}
+.sec-head h2 span{color:var(--blue)}
+.sec-head p{color:var(--muted);font-size:16.5px}
+
+/* ---------- About ---------- */
+.about .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:64px;align-items:center}
+.about-media{position:relative;padding-bottom:60px;padding-right:60px}
+.about-media .main{border-radius:20px;height:460px;object-fit:cover;width:100%;box-shadow:var(--shadow)}
+.about-media .sub{position:absolute;right:0;bottom:0;width:52%;height:230px;object-fit:cover;border-radius:18px;border:8px solid #fff;box-shadow:var(--shadow-lg)}
+.about-media .badge{position:absolute;left:-18px;bottom:90px;background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;padding:22px 26px;border-radius:18px;box-shadow:var(--shadow-lg);text-align:center}
+.about-media .badge b{display:block;font-size:42px;line-height:1}
+.about-media .badge span{font-size:14px}
+.about-text .eyebrow::after{display:none}
+.about-text h2{font-size:clamp(28px,3.4vw,38px);color:var(--navy);line-height:1.3;margin-bottom:18px}
+.about-text h2 span{color:var(--blue)}
+.about-text p{color:var(--muted);margin-bottom:22px}
+.checklist{display:grid;grid-template-columns:1fr 1fr;gap:12px 20px;margin-bottom:30px;list-style:none}
+.checklist li{display:flex;gap:10px;align-items:center;font-weight:500;font-size:15px}
+.checklist .ic{width:22px;height:22px;padding:4px;border-radius:50%;background:var(--blue);color:#fff;stroke-width:3}
+.about-contact{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.call-box{display:flex;align-items:center;gap:12px}
+.call-box .circle{width:52px;height:52px;border-radius:50%;background:var(--ice);color:var(--blue);display:grid;place-items:center}
+.call-box small{display:block;color:var(--muted);font-size:13px}
+.call-box b{font-size:19px;color:var(--navy)}
+
+/* ---------- Services ---------- */
+.services{background:var(--ice-2)}
+.svc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.svc-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:0 4px 18px rgba(11,42,91,.06);transition:.3s;display:flex;flex-direction:column;border:1px solid var(--line)}
+.svc-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.svc-img{position:relative;height:190px;overflow:hidden}
+.svc-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.svc-card:hover .svc-img img{transform:scale(1.08)}
+.svc-icon{position:absolute;left:20px;bottom:-24px;width:52px;height:52px;border-radius:14px;background:var(--blue);color:#fff;display:grid;place-items:center;box-shadow:0 8px 18px rgba(20,86,200,.4);border:3px solid #fff}
+.svc-body{padding:36px 22px 22px;flex:1;display:flex;flex-direction:column}
+.svc-body h3{font-size:19px;color:var(--navy);margin-bottom:8px;font-weight:600}
+.svc-body p{font-size:14.5px;color:var(--muted);flex:1;margin-bottom:16px}
+.svc-link{display:inline-flex;align-items:center;gap:6px;color:var(--blue);font-weight:500;font-size:14.5px}
+.svc-link .ic{width:16px;height:16px;transition:.2s}
+.svc-card:hover .svc-link .ic{transform:translateX(4px)}
+.svc-card.cta{background:linear-gradient(160deg,var(--navy),var(--blue));color:#fff;padding:34px 26px;justify-content:center;border:0}
+.svc-card.cta h3{font-size:22px;margin-bottom:10px;line-height:1.35}
+.svc-card.cta p{color:#cfe0f7;font-size:15px;margin-bottom:24px}
+.svc-card.cta .btn{align-self:flex-start}
+
+/* ---------- Stats ---------- */
+.stats{position:relative;padding:80px 0;background:url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1800&q=70') center/cover fixed}
+.stats::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,42,91,.94),rgba(20,86,200,.86))}
+.stats .grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;color:#fff;text-align:center}
+.stat b{display:block;font-size:52px;font-weight:700;line-height:1.1}
+.stat b em{font-style:normal;color:var(--sky-2)}
+.stat > span{color:#cfe0f7;font-size:16px}
+.stat .f-icon{margin:0 auto 14px;background:rgba(255,255,255,.12);color:#fff}
+
+/* ---------- Why us ---------- */
+.why .grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.why-img{position:relative;border-radius:22px;overflow:hidden;height:540px}
+.why-img img{width:100%;height:100%;object-fit:cover}
+.why-img .quote{position:absolute;left:24px;right:24px;bottom:24px;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-radius:16px;padding:20px 22px;display:flex;gap:14px;align-items:center}
+.why-img .quote .f-icon{background:var(--blue);color:#fff}
+.why-img .quote b{color:var(--navy);display:block}
+.why-img .quote small{color:var(--muted)}
+.why-list{display:grid;gap:18px;margin-top:30px}
+.why-item{display:flex;gap:18px;padding:22px;border-radius:16px;border:1px solid var(--line);transition:.25s;background:#fff}
+.why-item:hover{border-color:var(--sky);box-shadow:var(--shadow);transform:translateX(6px)}
+.why-item .num{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,var(--blue),var(--sky));color:#fff;display:grid;place-items:center;flex-shrink:0}
+.why-item .num .ic{width:26px;height:26px}
+.why-item h3{font-size:18px;color:var(--navy);margin-bottom:4px}
+.why-item p{color:var(--muted);font-size:14.5px}
+
+/* ---------- Portfolio ---------- */
+.portfolio{background:var(--ice-2)}
+.tabs{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:38px}
+.tabs button{font-family:inherit;padding:9px 22px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;font-size:15px;transition:.2s}
+.tabs button.active,.tabs button:hover{background:var(--blue);color:#fff;border-color:var(--blue)}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pf-item{position:relative;border-radius:16px;overflow:hidden;height:280px;cursor:pointer}
+.pf-item.hide{display:none}
+.pf-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pf-item:hover img{transform:scale(1.08)}
+.pf-item .cap{position:absolute;inset:auto 0 0 0;padding:22px;background:linear-gradient(transparent,rgba(11,42,91,.92));color:#fff;transform:translateY(20px);opacity:.92;transition:.3s}
+.pf-item:hover .cap{transform:translateY(0);opacity:1}
+.pf-item .cap small{display:inline-block;background:var(--sky);padding:2px 12px;border-radius:999px;font-size:12.5px;margin-bottom:6px}
+.pf-item .cap h4{font-size:18px;font-weight:600}
+.pf-more{text-align:center;margin-top:40px}
+
+/* ---------- Process ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;position:relative}
+.steps::before{content:"";position:absolute;top:44px;left:12%;right:12%;height:2px;background:repeating-linear-gradient(90deg,var(--sky) 0 10px,transparent 10px 18px)}
+.step{text-align:center;position:relative}
+.step .circle{width:88px;height:88px;margin:0 auto 20px;border-radius:50%;background:#fff;border:2px solid var(--line);display:grid;place-items:center;color:var(--blue);position:relative;transition:.3s;box-shadow:var(--shadow)}
+.step:hover .circle{background:var(--blue);color:#fff;border-color:var(--blue)}
+.step .circle .ic{width:34px;height:34px}
+.step .circle i{position:absolute;top:-4px;right:-4px;width:30px;height:30px;border-radius:50%;background:var(--sky);color:#fff;font-style:normal;font-size:14px;font-weight:600;display:grid;place-items:center;border:3px solid #fff}
+.step h3{font-size:18px;color:var(--navy);margin-bottom:6px}
+.step p{font-size:14.5px;color:var(--muted);max-width:240px;margin:0 auto}
+
+/* ---------- Clients ---------- */
+.clients{padding:70px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.clients h3{text-align:center;font-size:20px;color:var(--navy);margin-bottom:30px;font-weight:600}
+.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.logo-grid div{height:80px;border-radius:12px;background:var(--ice-2);border:1px dashed #c3d6ee;display:grid;place-items:center;color:#8aa1c2;font-size:13.5px;font-weight:500;transition:.2s}
+.logo-grid div:hover{border-color:var(--sky);color:var(--blue)}
+
+/* ---------- Contact cards ---------- */
+.contact-cta{background:linear-gradient(180deg,#fff 0%,var(--ice) 100%)}
+.cc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cc-card{border-radius:20px;padding:36px 30px;color:#fff;position:relative;overflow:hidden;transition:.3s;display:flex;flex-direction:column;gap:6px;min-height:230px}
+.cc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.cc-card::after{content:"";position:absolute;right:-50px;bottom:-50px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.1)}
+.cc-card .f-icon{background:rgba(255,255,255,.18);color:#fff;margin-bottom:14px}
+.cc-card small{font-size:15px;opacity:.85}
+.cc-card b{font-size:26px;font-weight:600}
+.cc-card span{display:inline-flex;align-items:center;gap:6px;margin-top:auto;font-size:15px;font-weight:500}
+.cc-card span .ic{width:16px;height:16px}
+.cc-phone{background:linear-gradient(135deg,var(--navy),var(--blue))}
+.cc-line{background:linear-gradient(135deg,#049a43,var(--line-green))}
+.cc-map{background:linear-gradient(135deg,var(--blue),var(--sky))}
+
+/* ---------- Blog ---------- */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.post{border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line);transition:.3s}
+.post:hover{box-shadow:var(--shadow);transform:translateY(-5px)}
+.post .thumb{height:210px;overflow:hidden;position:relative}
+.post .thumb img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.post:hover .thumb img{transform:scale(1.06)}
+.post .date{position:absolute;top:16px;left:16px;background:#fff;border-radius:10px;padding:6px 12px;text-align:center;line-height:1.1;box-shadow:var(--shadow)}
+.post .date b{display:block;font-size:20px;color:var(--blue)}
+.post .date small{font-size:12px;color:var(--muted)}
+.post .body{padding:22px}
+.post .cat{color:var(--sky);font-size:13.5px;font-weight:500}
+.post h3{font-size:18px;color:var(--navy);margin:6px 0 10px;line-height:1.45}
+.post p{font-size:14.5px;color:var(--muted)}
+
+/* ---------- Footer ---------- */
+footer{background:var(--navy);color:#b9cbe6;padding-top:80px}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:44px;padding-bottom:56px}
+footer .logo-text b{color:#fff}
+footer .logo-text small{color:#9fb6d8}
+footer p{font-size:14.5px;margin-top:18px}
+footer h4{color:#fff;font-size:18px;margin-bottom:20px;position:relative;padding-bottom:12px}
+footer h4::after{content:"";position:absolute;left:0;bottom:0;width:36px;height:3px;border-radius:3px;background:var(--sky)}
+footer ul{list-style:none;display:grid;gap:10px;font-size:14.5px}
+footer ul a:hover{color:var(--sky-2)}
+.ft-contact li{display:flex;gap:10px;align-items:flex-start}
+.ft-contact .ic{color:var(--sky);margin-top:3px;width:18px;height:18px}
+.ft-social{display:flex;gap:10px;margin-top:22px}
+.ft-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:.2s;font-size:13px;font-weight:600;color:#fff}
+.ft-social a:hover{background:var(--sky)}
+.copyright{border-top:1px solid rgba(255,255,255,.1);padding:22px 0;font-size:13.5px;text-align:center;color:#8ea6c9}
+
+/* ---------- Floating ---------- */
+.floating{position:fixed;right:20px;bottom:24px;z-index:60;display:flex;flex-direction:column;gap:12px}
+.floating a{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.2);transition:.2s;position:relative}
+.floating a:hover{transform:scale(1.08)}
+.floating .fl-line{background:var(--line-green);font-weight:700;font-size:13px}
+.floating .fl-phone{background:var(--blue)}
+.floating .fl-phone::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--blue);animation:pulse 2s infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.6);opacity:0}}
+.to-top{position:fixed;left:20px;bottom:24px;z-index:60;width:46px;height:46px;border-radius:12px;background:var(--navy);color:#fff;display:grid;place-items:center;opacity:0;pointer-events:none;transition:.3s;border:0;cursor:pointer}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top .ic{transform:rotate(-90deg)}
+
+/* ---------- Reveal ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Mobile nav ---------- */
+.mobile-nav{position:fixed;inset:0;z-index:100;background:rgba(11,42,91,.6);opacity:0;pointer-events:none;transition:.3s}
+.mobile-nav.open{opacity:1;pointer-events:auto}
+.mobile-nav .panel{position:absolute;right:0;top:0;bottom:0;width:min(320px,85vw);background:#fff;padding:24px;transform:translateX(100%);transition:.3s;display:flex;flex-direction:column;gap:6px}
+.mobile-nav.open .panel{transform:none}
+.mobile-nav .panel a{padding:12px 14px;border-radius:10px;font-weight:500}
+.mobile-nav .panel a:hover{background:var(--ice);color:var(--blue)}
+.mobile-nav .close{align-self:flex-end;background:none;border:0;font-size:30px;color:var(--navy);cursor:pointer;line-height:1}
+
+/* ---------- Responsive ---------- */
+@media (max-width:1080px){
+  nav.main,.header-cta .btn{display:none}
+  .burger{display:block}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .feature-strip .grid{grid-template-columns:repeat(2,1fr)}
+  .feature-strip .item:nth-child(2){border-right:0}
+  .feature-strip .item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .about .grid,.why .grid{grid-template-columns:1fr;gap:44px}
+  .ft-grid{grid-template-columns:1fr 1fr}
+  .logo-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:760px){
+  .container{padding:0 16px}
+  section{padding:68px 0}
+  .topbar .info span:nth-child(n+2),.topbar .social{display:none}
+  .topbar .container{justify-content:center}
+  .hero{height:580px}
+  .hero-arrow{display:none}
+  .hero-dots{bottom:90px}
+  .slide-content p{font-size:16px}
+  .feature-strip{margin-top:-56px}
+  .feature-strip .grid{grid-template-columns:1fr}
+  .feature-strip .item{border-right:0;border-bottom:1px solid var(--line);padding:20px}
+  .svc-grid,.pf-grid,.blog-grid,.cc-grid{grid-template-columns:1fr}
+  .stats .grid{grid-template-columns:1fr 1fr;gap:34px 16px}
+  .stat b{font-size:40px}
+  .steps{grid-template-columns:1fr 1fr;gap:36px 16px}
+  .steps::before{display:none}
+  .checklist{grid-template-columns:1fr}
+  .about-media{padding-right:30px;padding-bottom:40px}
+  .about-media .main{height:340px}
+  .about-media .sub{height:160px}
+  .about-media .badge{left:-6px;bottom:60px;padding:16px 18px}
+  .about-media .badge b{font-size:32px}
+  .why-img{height:400px}
+  .ft-grid{grid-template-columns:1fr;gap:36px}
+  .logo-grid{grid-template-columns:repeat(2,1fr)}
+  .stats{background-attachment:scroll}
+  .floating a{width:50px;height:50px}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5a2.12 2.12 0 1 1-3-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+  <symbol id="i-roller" viewBox="0 0 24 24"><rect x="2" y="2" width="16" height="6" rx="2"/><path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="8" y="16" width="4" height="6" rx="1"/></symbol>
+  <symbol id="i-home-plus" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M12 11v6M9 14h6"/></symbol>
+  <symbol id="i-cabinet" viewBox="0 0 24 24"><rect x="3" y="2" width="18" height="20" rx="2"/><path d="M12 2v14M3 16h18M9 9v2M15 9v2M7 22v-1M17 22v-1"/></symbol>
+  <symbol id="i-curtain" viewBox="0 0 24 24"><path d="M2 3h20M4 3v18c3-2 5-6 6-18M20 3v18c-3-2-5-6-6-18"/></symbol>
+  <symbol id="i-shutter" viewBox="0 0 24 24"><path d="M3 21V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v16"/><path d="M3 8h18M3 12h18M3 16h18M1 21h22"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></symbol>
+  <symbol id="i-ruler" viewBox="0 0 24 24"><path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0z"/><path d="m14.5 12.5 2-2M11.5 9.5l2-2M8.5 6.5l2-2M17.5 15.5l2-2"/></symbol>
+  <symbol id="i-clipboard" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6M15.5 7.5l3 3L22 7l-3-3"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0 0 4h4v-4z"/></symbol>
+</svg>
+
+<!-- ========== TOPBAR ========== -->
+<div class="topbar">
+  <div class="container">
+    <div class="info">
+      <span><svg class="ic"><use href="#i-phone"/></svg> 08X-XXX-XXXX</span>
+      <span><svg class="ic"><use href="#i-mail"/></svg> contact@navinya.com</span>
+      <span><svg class="ic"><use href="#i-clock"/></svg> จันทร์ - เสาร์ 08:00 - 18:00 น.</span>
+    </div>
+    <div class="social">
+      <a href="#">Facebook</a>
+      <a href="#">LINE</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+</div>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="container">
+    <a href="#" class="logo">
+      <div class="logo-mark">N</div>
+      <div class="logo-text"><b>NAVINYA</b><small>รับเหมาก่อสร้าง รื้อถอน รีโนเวท</small></div>
+    </a>
+    <nav class="main">
+      <ul>
+        <li><a href="#" class="active">หน้าแรก</a></li>
+        <li><a href="#about">เกี่ยวกับเรา</a></li>
+        <li><a href="#services">บริการของเรา</a></li>
+        <li><a href="#portfolio">ผลงาน</a></li>
+        <li><a href="#blog">บทความ</a></li>
+        <li><a href="#contact">ติดต่อเรา</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="#contact" class="btn btn-primary"><svg class="ic"><use href="#i-clipboard"/></svg> ขอใบเสนอราคา</a>
+      <button class="burger" aria-label="เปิดเมนู"><svg class="ic"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav">
+  <div class="panel">
+    <button class="close" aria-label="ปิดเมนู">&times;</button>
+    <a href="#">หน้าแรก</a>
+    <a href="#about">เกี่ยวกับเรา</a>
+    <a href="#services">บริการของเรา</a>
+    <a href="#portfolio">ผลงาน</a>
+    <a href="#blog">บทความ</a>
+    <a href="#contact">ติดต่อเรา</a>
+    <a href="#contact" class="btn btn-primary" style="justify-content:center;margin-top:12px;color:#fff">ขอใบเสนอราคา</a>
+  </div>
+</div>
+
+<!-- ========== HERO SLIDER ========== -->
+<section class="hero" style="padding:0">
+  <div class="slide active">
+    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1920&q=75" alt="ทีมงานก่อสร้างหน้างาน">
+    <div class="slide-content"><div class="container">
+      <div class="tag"><svg class="ic" style="width:16px;height:16px"><use href="#i-award"/></svg> รับเหมาก่อสร้างครบวงจร</div>
+      <h1>รื้อถอน ก่อสร้าง รีโนเวท<br><span>ครบ จบ ในที่เดียว</span></h1>
+      <p>ทีมวิศวกรและช่างมืออาชีพ ดูแลตั้งแต่สำรวจหน้างาน ออกแบบ ลงมือก่อสร้าง จนถึงส่งมอบงาน</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-sky">ขอใบเสนอราคาฟรี <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a href="#services" class="btn btn-outline">ดูบริการทั้งหมด</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=1920&q=75" alt="รถแบคโฮรื้อถอนอาคาร">
+    <div class="slide-content"><div class="container">
+      <div class="tag"><svg class="ic" style="width:16px;height:16px"><use href="#i-hammer"/></svg> งานรื้อถอนทุบตึก</div>
+      <h2>รื้อถอนอาคารอย่างปลอดภัย<br><span>เคลียร์พื้นที่พร้อมสร้างใหม่</span></h2>
+      <p>เครื่องจักรหนักพร้อมทีมงานชำนาญ ขนย้ายเศษวัสดุครบ ไม่ทิ้งงาน ไม่กระทบเพื่อนบ้าน</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-sky">ประเมินราคารื้อถอน <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a href="#portfolio" class="btn btn-outline">ดูผลงาน</a>
+      </div>
+    </div></div>
+  </div>
+  <div class="slide">
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1920&q=75" alt="ห้องนั่งเล่นหลังรีโนเวท">
+    <div class="slide-content"><div class="container">
+      <div class="tag"><svg class="ic" style="width:16px;height:16px"><use href="#i-roller"/></svg> รีโนเวท &amp; ตกแต่งภายใน</div>
+      <h2>เปลี่ยนบ้านเก่าให้สวยใหม่<br><span>บิ้วอิน ผ้าม่าน วอลเปเปอร์</span></h2>
+      <p>ออกแบบและตกแต่งภายในครบวงจร ตั้งแต่งานโครงสร้างไปจนถึงเฟอร์นิเจอร์และของตกแต่ง</p>
+      <div class="actions">
+        <a href="#contact" class="btn btn-sky">ปรึกษาฟรี <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <a href="#portfolio" class="btn btn-outline">ดูผลงาน</a>
+      </div>
+    </div></div>
+  </div>
+  <button class="hero-arrow prev" aria-label="ก่อนหน้า"><svg class="ic"><use href="#i-arrow"/></svg></button>
+  <button class="hero-arrow next" aria-label="ถัดไป"><svg class="ic"><use href="#i-arrow"/></svg></button>
+  <div class="hero-dots"></div>
+</section>
+
+<!-- ========== FEATURE STRIP ========== -->
+<div class="feature-strip">
+  <div class="container">
+    <div class="grid">
+      <div class="item"><div class="f-icon"><svg class="ic"><use href="#i-users"/></svg></div><div><h3>ทีมวิศวกรควบคุม</h3><p>ทุกงานมีวิศวกรดูแลตามหลักวิศวกรรม</p></div></div>
+      <div class="item"><div class="f-icon"><svg class="ic"><use href="#i-ruler"/></svg></div><div><h3>สำรวจหน้างานฟรี</h3><p>วัดพื้นที่และประเมินราคาก่อนเริ่มงาน</p></div></div>
+      <div class="item"><div class="f-icon"><svg class="ic"><use href="#i-shield"/></svg></div><div><h3>รับประกันผลงาน</h3><p>ดูแลหลังส่งมอบ แก้ไขให้ตามเงื่อนไข</p></div></div>
+      <div class="item"><div class="f-icon"><svg class="ic"><use href="#i-clock"/></svg></div><div><h3>ส่งงานตรงเวลา</h3><p>วางแผนงานชัดเจน แจ้งความคืบหน้าทุกขั้น</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="container grid">
+    <div class="about-media reveal">
+      <img class="main" src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=1000&q=75" alt="ช่างกำลังทำงานไม้">
+      <img class="sub" src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=700&q=75" alt="วิศวกรตรวจแบบ">
+      <div class="badge"><b>15+</b><span>ปีประสบการณ์</span></div>
+    </div>
+    <div class="about-text reveal">
+      <div class="eyebrow">เกี่ยวกับ NAVINYA</div>
+      <h2>ผู้รับเหมาที่ดูแลบ้านและอาคารของคุณ <span>ตั้งแต่รื้อจนสร้างเสร็จ</span></h2>
+      <p>NAVINYA ให้บริการงานรื้อถอน ก่อสร้าง รีโนเวท ต่อเติม และงานตกแต่งภายในแบบครบวงจร ไม่ต้องจ้างหลายเจ้า ไม่ต้องประสานงานเอง เราดูแลให้ทั้งหมดด้วยทีมงานของเราเอง</p>
+      <ul class="checklist">
+        <li><svg class="ic"><use href="#i-check"/></svg> ทีมช่างประจำ ไม่ใช้ช่างรายวัน</li>
+        <li><svg class="ic"><use href="#i-check"/></svg> ใบเสนอราคาโปร่งใส แจกแจงชัด</li>
+        <li><svg class="ic"><use href="#i-check"/></svg> วัสดุมีมาตรฐาน ตรงสเปก</li>
+        <li><svg class="ic"><use href="#i-check"/></svg> มีใบอนุญาตและประกันภัยงาน</li>
+        <li><svg class="ic"><use href="#i-check"/></svg> รายงานความคืบหน้าผ่าน LINE</li>
+        <li><svg class="ic"><use href="#i-check"/></svg> บริการหลังการขายจริงจัง</li>
+      </ul>
+      <div class="about-contact">
+        <a href="#services" class="btn btn-primary">รู้จักเราเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></a>
+        <div class="call-box">
+          <div class="circle"><svg class="ic"><use href="#i-phone"/></svg></div>
+          <div><small>โทรปรึกษาได้ทันที</small><b>08X-XXX-XXXX</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">บริการของเรา</div>
+      <h2>บริการครบวงจร <span>7 งานหลัก</span> ในทีมเดียว</h2>
+      <p>ตั้งแต่ทุบตึกเก่า สร้างใหม่ ปรับปรุง ต่อเติม จนถึงงานตกแต่งที่ทำให้บ้านพร้อมอยู่</p>
+    </div>
+    <div class="svc-grid">
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=600&q=70" alt="งานรื้อถอนทุบตึก"><div class="svc-icon"><svg class="ic"><use href="#i-hammer"/></svg></div></div>
+        <div class="svc-body"><h3>งานรื้อถอนทุบตึก</h3><p>รื้อถอนบ้าน อาคาร โรงงาน ด้วยเครื่องจักรหนัก ขนย้ายเศษวัสดุ เคลียร์พื้นที่พร้อมสร้างใหม่</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1626885930974-4b69aa21bbf9?auto=format&fit=crop&w=600&q=70" alt="งานก่อสร้าง"><div class="svc-icon"><svg class="ic"><use href="#i-building"/></svg></div></div>
+        <div class="svc-body"><h3>งานก่อสร้าง</h3><p>รับสร้างบ้าน อาคารพาณิชย์ โกดัง โรงงาน ตั้งแต่ฐานรากจนส่งมอบ ควบคุมโดยวิศวกร</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=600&q=70" alt="งานรีโนเวท"><div class="svc-icon"><svg class="ic"><use href="#i-roller"/></svg></div></div>
+        <div class="svc-body"><h3>งานรีโนเวท</h3><p>ปรับปรุงบ้านเก่า คอนโด ร้านค้า ออฟฟิศ ให้กลับมาสวยใหม่ ทั้งงานโครงสร้างและงานตกแต่ง</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=600&q=70" alt="งานต่อเติม"><div class="svc-icon"><svg class="ic"><use href="#i-home-plus"/></svg></div></div>
+        <div class="svc-body"><h3>งานต่อเติม</h3><p>ต่อเติมครัว โรงจอดรถ ห้องนอน ชั้นลอย กันสาด กลมกลืนกับบ้านเดิม ถูกหลักวิศวกรรม</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=600&q=70" alt="งานบิ้วอิน"><div class="svc-icon"><svg class="ic"><use href="#i-cabinet"/></svg></div></div>
+        <div class="svc-body"><h3>งานบิ้วอิน</h3><p>เฟอร์นิเจอร์บิ้วอินตามขนาดพื้นที่จริง ชุดครัว ตู้เสื้อผ้า ตู้ทีวี ตู้โชว์ วัสดุเกรดดี</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=600&q=70" alt="ผ้าม่าน วอลเปเปอร์"><div class="svc-icon"><svg class="ic"><use href="#i-curtain"/></svg></div></div>
+        <div class="svc-body"><h3>ผ้าม่าน วอลเปเปอร์</h3><p>ม่านจีบ ม่านลอน ม่านม้วน มู่ลี่ และวอลเปเปอร์หลากหลายลาย วัดพื้นที่ถึงหน้างาน</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a href="#" class="svc-card reveal">
+        <div class="svc-img"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=70" alt="ประตูม้วน"><div class="svc-icon"><svg class="ic"><use href="#i-shutter"/></svg></div></div>
+        <div class="svc-body"><h3>ประตูม้วน</h3><p>ประตูม้วนเหล็ก สแตนเลส ประตูม้วนไฟฟ้า สำหรับบ้าน ร้านค้า โกดัง ติดตั้งและซ่อมบำรุง</p><span class="svc-link">ดูข้อมูลเพิ่มเติม <svg class="ic"><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <div class="svc-card cta reveal">
+        <div class="f-icon" style="background:rgba(255,255,255,.15);color:#fff;margin-bottom:18px"><svg class="ic"><use href="#i-chat"/></svg></div>
+        <h3>ไม่แน่ใจว่าต้องใช้บริการไหน?</h3>
+        <p>ส่งรูปหน้างานมาทาง LINE ทีมงานช่วยประเมินและแนะนำให้ฟรี</p>
+        <a href="#contact" class="btn btn-sky">ปรึกษาฟรี <svg class="ic"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== STATS ========== -->
+<section class="stats">
+  <div class="container grid">
+    <div class="stat"><div class="f-icon"><svg class="ic"><use href="#i-award"/></svg></div><b><span data-count="15">0</span><em>+</em></b><span>ปีประสบการณ์</span></div>
+    <div class="stat"><div class="f-icon"><svg class="ic"><use href="#i-building"/></svg></div><b><span data-count="1200">0</span><em>+</em></b><span>โครงการที่ส่งมอบ</span></div>
+    <div class="stat"><div class="f-icon"><svg class="ic"><use href="#i-users"/></svg></div><b><span data-count="50">0</span><em>+</em></b><span>ทีมช่างและวิศวกร</span></div>
+    <div class="stat"><div class="f-icon"><svg class="ic"><use href="#i-shield"/></svg></div><b><span data-count="98">0</span><em>%</em></b><span>ลูกค้าพึงพอใจ</span></div>
+  </div>
+</section>
+
+<!-- ========== WHY US ========== -->
+<section class="why">
+  <div class="container grid">
+    <div class="why-img reveal">
+      <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=75" alt="ทีมงานหน้างานก่อสร้าง">
+      <div class="quote">
+        <div class="f-icon"><svg class="ic"><use href="#i-phone"/></svg></div>
+        <div><b>ปรึกษาฟรี ไม่มีค่าใช้จ่าย</b><small>ทีมงานตอบกลับภายใน 30 นาที ในเวลาทำการ</small></div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="eyebrow" style="justify-content:flex-start">ทำไมต้องเลือกเรา</div>
+      <h2 style="font-size:clamp(28px,3.4vw,38px);color:var(--navy);line-height:1.3">ใช้บริการ NAVINYA <span style="color:var(--blue)">ดีอย่างไร?</span></h2>
+      <div class="why-list">
+        <div class="why-item"><div class="num"><svg class="ic"><use href="#i-users"/></svg></div><div><h3>ทีมงานคุณภาพ</h3><p>ช่างประจำที่ผ่านการอบรม ทำงานเป็นระบบ มีหัวหน้างานคุมทุกไซต์</p></div></div>
+        <div class="why-item"><div class="num"><svg class="ic"><use href="#i-wallet"/></svg></div><div><h3>ราคายุติธรรม โปร่งใส</h3><p>ใบเสนอราคาแจกแจงทุกรายการ ไม่มีค่าใช้จ่ายแอบแฝง แบ่งจ่ายตามงวดงาน</p></div></div>
+        <div class="why-item"><div class="num"><svg class="ic"><use href="#i-shield"/></svg></div><div><h3>รับประกันผลงาน</h3><p>รับประกันงานโครงสร้างและงานติดตั้ง มีทีมดูแลหลังส่งมอบ</p></div></div>
+        <div class="why-item"><div class="num"><svg class="ic"><use href="#i-key"/></svg></div><div><h3>จบในที่เดียว</h3><p>รื้อ สร้าง ต่อเติม ตกแต่ง ไม่ต้องจ้างหลายเจ้า ประหยัดเวลาและงบประมาณ</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PORTFOLIO ========== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">ผลงานของเรา</div>
+      <h2>ผลงานที่ <span>ส่งมอบแล้ว</span></h2>
+      <p>ตัวอย่างงานจริงจากหลากหลายประเภท ทั้งบ้านพักอาศัย อาคารพาณิชย์ และโรงงาน</p>
+    </div>
+    <div class="tabs">
+      <button class="active" data-filter="all">ทั้งหมด</button>
+      <button data-filter="demo">รื้อถอน</button>
+      <button data-filter="build">ก่อสร้าง</button>
+      <button data-filter="reno">รีโนเวท / ต่อเติม</button>
+      <button data-filter="interior">บิ้วอิน / ตกแต่ง</button>
+    </div>
+    <div class="pf-grid">
+      <div class="pf-item" data-cat="build"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=70" alt=""><div class="cap"><small>ก่อสร้าง</small><h4>บ้านเดี่ยว 2 ชั้น สไตล์โมเดิร์น</h4></div></div>
+      <div class="pf-item" data-cat="interior"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=70" alt=""><div class="cap"><small>บิ้วอิน</small><h4>ตกแต่งห้องนั่งเล่น คอนโดย่านสาทร</h4></div></div>
+      <div class="pf-item" data-cat="demo"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=800&q=70" alt=""><div class="cap"><small>รื้อถอน</small><h4>รื้อถอนอาคารพาณิชย์ 4 ชั้น</h4></div></div>
+      <div class="pf-item" data-cat="reno"><img src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=800&q=70" alt=""><div class="cap"><small>รีโนเวท</small><h4>รีโนเวทบ้านเดี่ยว เปิดมุมมองสระว่ายน้ำ</h4></div></div>
+      <div class="pf-item" data-cat="interior"><img src="https://images.unsplash.com/photo-1617104678098-de229db51175?auto=format&fit=crop&w=800&q=70" alt=""><div class="cap"><small>ผ้าม่าน</small><h4>ผ้าม่านทึบแสง + วอลเปเปอร์ห้องนอน</h4></div></div>
+      <div class="pf-item" data-cat="build"><img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=70" alt=""><div class="cap"><small>ก่อสร้าง</small><h4>งานโครงสร้างอาคารสำนักงาน</h4></div></div>
+    </div>
+    <div class="pf-more"><a href="#" class="btn btn-primary">ดูผลงานทั้งหมด <svg class="ic"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="process">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">ขั้นตอนการทำงาน</div>
+      <h2>เริ่มงานกับเราง่ายๆ <span>เพียง 4 ขั้นตอน</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="circle"><svg class="ic"><use href="#i-chat"/></svg><i>1</i></div><h3>ปรึกษา &amp; สำรวจ</h3><p>แจ้งความต้องการ ทีมงานลงพื้นที่สำรวจหน้างานจริง</p></div>
+      <div class="step reveal"><div class="circle"><svg class="ic"><use href="#i-ruler"/></svg><i>2</i></div><h3>ออกแบบ &amp; เสนอราคา</h3><p>จัดทำแบบและใบเสนอราคาที่แจกแจงทุกรายการ</p></div>
+      <div class="step reveal"><div class="circle"><svg class="ic"><use href="#i-hammer"/></svg><i>3</i></div><h3>ลงมือดำเนินงาน</h3><p>ทำงานตามแผน รายงานความคืบหน้าทุกสัปดาห์</p></div>
+      <div class="step reveal"><div class="circle"><svg class="ic"><use href="#i-key"/></svg><i>4</i></div><h3>ส่งมอบ &amp; รับประกัน</h3><p>ตรวจรับงานร่วมกัน พร้อมดูแลหลังส่งมอบ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CLIENTS ========== -->
+<div class="clients">
+  <div class="container">
+    <h3>ลูกค้าบางส่วนที่ไว้วางใจเรา</h3>
+    <div class="logo-grid">
+      <div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div>
+      <div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div><div>โลโก้ลูกค้า</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== CONTACT CTA ========== -->
+<section class="contact-cta" id="contact">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">ติดต่อเรา</div>
+      <h2>สอบถามบริการ <span>ขอใบเสนอราคา</span></h2>
+      <p>เลือกช่องทางที่สะดวก ทีมงานพร้อมให้คำปรึกษาทุกวัน</p>
+    </div>
+    <div class="cc-grid">
+      <a href="tel:0800000000" class="cc-card cc-phone reveal">
+        <div class="f-icon"><svg class="ic"><use href="#i-phone"/></svg></div>
+        <small>โทรสอบถาม / นัดสำรวจหน้างาน</small><b>08X-XXX-XXXX</b>
+        <span>โทรเลย <svg class="ic"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="cc-card cc-line reveal">
+        <div class="f-icon"><svg class="ic"><use href="#i-chat"/></svg></div>
+        <small>แอดไลน์ ส่งรูปหน้างาน</small><b>@navinya</b>
+        <span>เพิ่มเพื่อน <svg class="ic"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="cc-card cc-map reveal">
+        <div class="f-icon"><svg class="ic"><use href="#i-pin"/></svg></div>
+        <small>สำนักงานใหญ่</small><b>ดูแผนที่ Google Maps</b>
+        <span>นำทาง <svg class="ic"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== BLOG ========== -->
+<section class="blog" id="blog">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="eyebrow">บทความ</div>
+      <h2>ความรู้เรื่อง <span>บ้านและการก่อสร้าง</span></h2>
+    </div>
+    <div class="blog-grid">
+      <a href="#" class="post reveal"><div class="thumb"><img src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=700&q=70" alt=""><div class="date"><b>12</b><small>ต.ค. 69</small></div></div><div class="body"><span class="cat">รีโนเวท</span><h3>รีโนเวทบ้านเก่า ต้องเตรียมงบเท่าไหร่ และต้องเช็คอะไรบ้าง</h3><p>สรุปรายการที่ควรตรวจก่อนเริ่มรีโนเวท เพื่อไม่ให้บานปลาย...</p></div></a>
+      <a href="#" class="post reveal"><div class="thumb"><img src="https://images.unsplash.com/photo-1580901368919-7738efb0f87e?auto=format&fit=crop&w=700&q=70" alt=""><div class="date"><b>05</b><small>ต.ค. 69</small></div></div><div class="body"><span class="cat">รื้อถอน</span><h3>ขออนุญาตรื้อถอนอาคาร ต้องใช้เอกสารอะไรบ้าง</h3><p>ขั้นตอนการยื่นขออนุญาตรื้อถอนกับหน่วยงานท้องถิ่นแบบเข้าใจง่าย...</p></div></a>
+      <a href="#" class="post reveal"><div class="thumb"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=700&q=70" alt=""><div class="date"><b>28</b><small>ก.ย. 69</small></div></div><div class="body"><span class="cat">บิ้วอิน</span><h3>เลือกวัสดุบิ้วอินครัวอย่างไร ให้ทนความชื้นและใช้งานได้นาน</h3><p>เปรียบเทียบไม้ปาร์ติเกิล MDF HMR และ WPC แบบละเอียด...</p></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="container ft-grid">
+    <div>
+      <a href="#" class="logo"><div class="logo-mark">N</div><div class="logo-text"><b>NAVINYA</b><small>รับเหมาก่อสร้าง รื้อถอน รีโนเวท</small></div></a>
+      <p>ผู้ให้บริการงานรื้อถอน ก่อสร้าง รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน ครบวงจรในที่เดียว</p>
+      <div class="ft-social"><a href="#">FB</a><a href="#">LINE</a><a href="#">TT</a><a href="#">YT</a></div>
+    </div>
+    <div>
+      <h4>บริการของเรา</h4>
+      <ul>
+        <li><a href="#">งานรื้อถอนทุบตึก</a></li>
+        <li><a href="#">งานก่อสร้าง</a></li>
+        <li><a href="#">งานรีโนเวท</a></li>
+        <li><a href="#">งานต่อเติม</a></li>
+        <li><a href="#">งานบิ้วอิน</a></li>
+        <li><a href="#">ผ้าม่าน วอลเปเปอร์</a></li>
+        <li><a href="#">ประตูม้วน</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>เมนู</h4>
+      <ul>
+        <li><a href="#">หน้าแรก</a></li>
+        <li><a href="#about">เกี่ยวกับเรา</a></li>
+        <li><a href="#portfolio">ผลงาน</a></li>
+        <li><a href="#blog">บทความ</a></li>
+        <li><a href="#contact">ติดต่อเรา</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>ติดต่อเรา</h4>
+      <ul class="ft-contact">
+        <li><svg class="ic"><use href="#i-pin"/></svg> เลขที่ XX ถนน XXXXX แขวง XXXXX เขต XXXXX กรุงเทพฯ 10XXX</li>
+        <li><svg class="ic"><use href="#i-phone"/></svg> 08X-XXX-XXXX</li>
+        <li><svg class="ic"><use href="#i-chat"/></svg> LINE: @navinya</li>
+        <li><svg class="ic"><use href="#i-mail"/></svg> contact@navinya.com</li>
+        <li><svg class="ic"><use href="#i-clock"/></svg> จันทร์ - เสาร์ 08:00 - 18:00 น.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">© 2026 NAVINYA. สงวนลิขสิทธิ์</div>
+</footer>
+
+<!-- Floating -->
+<div class="floating">
+  <a href="#" class="fl-line" aria-label="LINE">LINE</a>
+  <a href="tel:0800000000" class="fl-phone" aria-label="โทร"><svg class="ic"><use href="#i-phone"/></svg></a>
+</div>
+<button class="to-top" aria-label="กลับด้านบน"><svg class="ic"><use href="#i-arrow"/></svg></button>
+
+<script>
+// Hero slider
+(function(){
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotsWrap=document.querySelector('.hero-dots');
+  let i=0,timer;
+  slides.forEach((_,n)=>{const b=document.createElement('button');b.setAttribute('aria-label','สไลด์ '+(n+1));b.onclick=()=>go(n);dotsWrap.appendChild(b)});
+  const dots=[...dotsWrap.children];
+  function go(n){slides[i].classList.remove('active');dots[i].classList.remove('active');i=(n+slides.length)%slides.length;slides[i].classList.add('active');dots[i].classList.add('active');clearInterval(timer);timer=setInterval(()=>go(i+1),6000)}
+  document.querySelector('.hero-arrow.prev').onclick=()=>go(i-1);
+  document.querySelector('.hero-arrow.next').onclick=()=>go(i+1);
+  go(0);
+})();
+
+// Mobile nav
+const mnav=document.querySelector('.mobile-nav');
+document.querySelector('.burger').onclick=()=>mnav.classList.add('open');
+mnav.addEventListener('click',e=>{if(e.target===mnav||e.target.closest('.close')||e.target.closest('a'))mnav.classList.remove('open')});
+
+// Portfolio filter
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{
+  document.querySelector('.tabs .active').classList.remove('active');b.classList.add('active');
+  const f=b.dataset.filter;
+  document.querySelectorAll('.pf-item').forEach(it=>it.classList.toggle('hide',f!=='all'&&it.dataset.cat!==f));
+});
+
+// Reveal + counters
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count,t0=performance.now();
+  (function tick(t){const p=Math.min((t-t0)/1600,1);el.textContent=Math.floor(end*(1-Math.pow(1-p,3))).toLocaleString();if(p<1)requestAnimationFrame(tick)})(t0);
+  cio.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// Back to top
+const tt=document.querySelector('.to-top');
+addEventListener('scroll',()=>tt.classList.toggle('show',scrollY>600));
+tt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>
