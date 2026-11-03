@@ -4,7 +4,7 @@ import { AboutTabs } from "@/components/about-tabs";
 import { PageHead } from "@/components/page-head";
 
 export const metadata: Metadata = {
-  title: "ใบรับรอง / ใบอนุญาต | NAVINYA",
+  title: "ใบรับรอง / ใบอนุญาต | บริษัท นวิญญา 1979 จำกัด",
   description: "หนังสือรับรองการจดทะเบียนบริษัท นวิญญา 1979 จำกัด",
 };
 

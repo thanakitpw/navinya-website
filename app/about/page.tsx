@@ -6,7 +6,7 @@ import { PageHead } from "@/components/page-head";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "ประวัติบริษัท | NAVINYA",
+  title: "ประวัติบริษัท | บริษัท นวิญญา 1979 จำกัด",
   description: `${site.company} (${site.companyEn}) ผู้รับเหมารื้อถอน ก่อสร้าง รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน และประตูม้วน`,
 };
 
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </div>
             <Image
               src="/images/renovate/team.webp"
-              alt="ทีมงาน NAVINYA"
+              alt="ทีมงาน บริษัท นวิญญา 1979 จำกัด"
               width={1477}
               height={1108}
               sizes="(max-width: 900px) 100vw, 480px"

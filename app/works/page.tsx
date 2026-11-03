@@ -5,15 +5,15 @@ import { PageHead } from "@/components/page-head";
 import { countPhotos, workCategories } from "@/lib/works";
 
 export const metadata: Metadata = {
-  title: "ผลงานของเรา | NAVINYA",
-  description: "รวมผลงานจริงของ NAVINYA งานรื้อถอน ก่อสร้าง รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน และประตูม้วน",
+  title: "ผลงานของเรา | บริษัท นวิญญา 1979 จำกัด",
+  description: "รวมผลงานจริงของ บริษัท นวิญญา 1979 จำกัด งานรื้อถอน ก่อสร้าง รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน และประตูม้วน",
 };
 
 export default async function WorksPage() {
   const counts = await countPhotos();
   return (
     <>
-      <PageHead title="ผลงานของเรา" lead="รูปจากหน้างานจริงของทีม NAVINYA แยกตามประเภทงาน" crumbs={[{ label: "ผลงาน" }]} />
+      <PageHead title="ผลงานของเรา" lead="รูปจากหน้างานจริงของทีม บริษัท นวิญญา 1979 จำกัด แยกตามประเภทงาน" crumbs={[{ label: "ผลงาน" }]} />
       <section className="works">
         <div className="container">
           <div className="wk-grid">

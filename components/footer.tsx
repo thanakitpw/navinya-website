@@ -116,7 +116,7 @@ export async function Footer() {
         </div>
       </div>
       <div className="copy">
-        Copyright {new Date().getFullYear()} © <Link href="/">NAVINYA รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม</Link> . All
+        Copyright {new Date().getFullYear()} © <Link href="/">บริษัท นวิญญา 1979 จำกัด รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม</Link> . All
         Rights Reserved
       </div>
     </footer>

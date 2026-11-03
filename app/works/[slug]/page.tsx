@@ -15,7 +15,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = getCategory((await params).slug);
-  return category ? { title: `${category.heading} | NAVINYA`, description: category.intro } : {};
+  return category ? { title: `${category.heading} | บริษัท นวิญญา 1979 จำกัด`, description: category.intro } : {};
 }
 
 export default async function WorkCategoryPage({ params }: Props) {

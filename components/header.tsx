@@ -16,7 +16,7 @@ export function Header() {
     <>
       <header>
         <div className="wrap">
-          <Link href="/" className="logo" aria-label="NAVINYA หน้าแรก">
+          <Link href="/" className="logo" aria-label="บริษัท นวิญญา 1979 จำกัด หน้าแรก">
             <LogoBadge priority />
           </Link>
           <nav className="main">

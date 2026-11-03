@@ -6,7 +6,7 @@ export function VideoGroups() {
     <section className="vgroups">
       <div className="container">
         <h2 className="sec-title">
-          ผลงานจริงจากหน้างาน NAVINYA
+          ผลงานจริงจากหน้างาน บริษัท นวิญญา 1979 จำกัด
           <span className="uline" />
         </h2>
         {videoGroups.map((g) => (

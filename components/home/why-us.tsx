@@ -37,7 +37,7 @@ export function WhyUs() {
           <div className="pic">
             <Image
               src={"/images/renovate/team.webp"}
-              alt="ทีมงาน NAVINYA"
+              alt="ทีมงาน บริษัท นวิญญา 1979 จำกัด"
               width={900}
               height={675}
               sizes="(max-width: 900px) 100vw, 560px"

@@ -4,8 +4,8 @@ import { AboutTabs } from "@/components/about-tabs";
 import { PageHead } from "@/components/page-head";
 
 export const metadata: Metadata = {
-  title: "ทีมงานของเรา | NAVINYA",
-  description: "ทีมวิศวกรและทีมช่างของ NAVINYA ที่ดูแลงานรื้อถอน ก่อสร้าง และงานตกแต่ง",
+  title: "ทีมงานของเรา | บริษัท นวิญญา 1979 จำกัด",
+  description: "ทีมวิศวกรและทีมช่างของ บริษัท นวิญญา 1979 จำกัด ที่ดูแลงานรื้อถอน ก่อสร้าง และงานตกแต่ง",
 };
 
 const photos = [
@@ -19,14 +19,14 @@ export default function TeamPage() {
     <>
       <PageHead
         title="ทีมงานของเรา"
-        lead="ทีมวิศวกรและทีมช่างของ NAVINYA"
+        lead="ทีมวิศวกรและทีมช่างของ บริษัท นวิญญา 1979 จำกัด"
         crumbs={[{ label: "เกี่ยวกับเรา", href: "/about" }, { label: "ทีมงานของเรา" }]}
       />
       <section className="works">
         <div className="container">
           <AboutTabs current="/about/team" />
           <div className="ab-hero">
-            <Image src="/images/renovate/team.webp" alt="ทีมงาน NAVINYA" width={1477} height={1108} sizes="(max-width: 1080px) 100vw, 1040px" />
+            <Image src="/images/renovate/team.webp" alt="ทีมงาน บริษัท นวิญญา 1979 จำกัด" width={1477} height={1108} sizes="(max-width: 1080px) 100vw, 1040px" />
           </div>
 
           <h2 className="ab-title">บรรยากาศการทำงาน</h2>

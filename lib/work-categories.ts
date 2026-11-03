@@ -61,7 +61,7 @@ export const workCategories: WorkCategory[] = [
     slug: "volunteer",
     title: "กิจกรรมจิตอาสา",
     heading: "กิจกรรมจิตอาสา",
-    intro: "ทีมงาน NAVINYA ร่วมช่วยเหลือสังคมในเหตุการณ์ภัยพิบัติ",
+    intro: "ทีมงาน บริษัท นวิญญา 1979 จำกัด ร่วมช่วยเหลือสังคมในเหตุการณ์ภัยพิบัติ",
     cover: "/images/volunteer/relief.webp",
   },
 ];

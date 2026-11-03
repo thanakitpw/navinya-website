@@ -5,8 +5,8 @@ import { PageHead } from "@/components/page-head";
 import { formatDate, getPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "บทความ | NAVINYA",
-  description: "บทความเรื่องงานรื้อถอน ขออนุญาตรื้อถอน ถมดิน รีโนเวท และประตูม้วน จากงานจริงของ NAVINYA",
+  title: "บทความ | บริษัท นวิญญา 1979 จำกัด",
+  description: "บทความเรื่องงานรื้อถอน ขออนุญาตรื้อถอน ถมดิน รีโนเวท และประตูม้วน จากงานจริงของ บริษัท นวิญญา 1979 จำกัด",
 };
 
 export default async function BlogPage() {

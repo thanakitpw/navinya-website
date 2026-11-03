@@ -5,7 +5,7 @@ import { QuoteForm } from "@/components/quote-form";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "ติดต่อเรา | NAVINYA",
+  title: "ติดต่อเรา | บริษัท นวิญญา 1979 จำกัด",
   description: `ติดต่อ ${site.company} โทร ${site.phones.map((p) => p.label).join(", ")} LINE ID: ${site.line}`,
 };
 
