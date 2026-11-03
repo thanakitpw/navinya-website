@@ -1,0 +1,45 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import { AboutTabs } from "@/components/about-tabs";
+import { PageHead } from "@/components/page-head";
+
+export const metadata: Metadata = {
+  title: "ทีมงานของเรา | NAVINYA",
+  description: "ทีมวิศวกรและทีมช่างของ NAVINYA ที่ดูแลงานรื้อถอน ก่อสร้าง และงานตกแต่ง",
+};
+
+const photos = [
+  { src: "/images/renovate/briefing.webp", alt: "ประชุมทีมช่างก่อนเริ่มงานรีโนเวทออฟฟิศ ตึกธนิยะ" },
+  { src: "/images/construction/lift-install.webp", alt: "ทีมช่างติดตั้งลิฟต์" },
+  { src: "/images/demolition/site-survey.webp", alt: "ทีมงานสำรวจหน้างานก่อนรื้อถอน" },
+];
+
+export default function TeamPage() {
+  return (
+    <>
+      <PageHead
+        title="ทีมงานของเรา"
+        lead="ทีมวิศวกรและทีมช่างของ NAVINYA"
+        crumbs={[{ label: "เกี่ยวกับเรา", href: "/about" }, { label: "ทีมงานของเรา" }]}
+      />
+      <section className="works">
+        <div className="container">
+          <AboutTabs current="/about/team" />
+          <div className="ab-hero">
+            <Image src="/images/renovate/team.webp" alt="ทีมงาน NAVINYA" width={1477} height={1108} sizes="(max-width: 1080px) 100vw, 1040px" />
+          </div>
+
+          <h2 className="ab-title">บรรยากาศการทำงาน</h2>
+          <div className="ab-photos">
+            {photos.map((p) => (
+              <figure key={p.src}>
+                <Image src={p.src} alt={p.alt} width={600} height={450} sizes="(max-width: 640px) 100vw, 340px" />
+                <figcaption>{p.alt}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

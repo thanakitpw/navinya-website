@@ -1,0 +1,6 @@
+# Keep local secrets and build output out of CLI uploads.
+.env*.local
+.next
+node_modules
+*.tsbuildinfo
+.DS_Store
