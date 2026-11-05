@@ -1,36 +1,26 @@
-import Link from "next/link";
+import { Rich } from "@/components/rich";
+import { getCopy } from "@/lib/cms/read";
 
-export function Intro() {
+export async function Intro() {
+  const { intro: c } = await getCopy("home");
   return (
     <section className="intro">
       <div className="container">
         <h1>
-          <span className="co">บริษัท นวิญญา 1979 จำกัด</span>
-          รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน
+          <span className="co">{c.company}</span>
+          {c.line1}
           <br />
-          วอลเปเปอร์ ประตูม้วน <span className="nw">ครบวงจร</span>
+          {c.line2} <span className="nw">{c.accent}</span>
         </h1>
-        <h2>ผู้รับเหมาครบวงจร ไว้ใจได้ทุกขั้นตอน</h2>
+        <h2>{c.subtitle}</h2>
         <p>
-          <b>บริษัท นวิญญา 1979 จำกัด</b> ผู้ให้บริการ <b>รับเหมาก่อสร้าง</b> และ <b>รื้อถอนทุบตึก</b> ครบวงจร พร้อมบริการรีโนเวท ต่อเติม
-          บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน
+          <Rich parts={c.p1} />
         </p>
         <p>
-          เราคือมืออาชีพที่เข้าใจความต้องการของเจ้าของบ้านและผู้ประกอบการ มั่นใจได้มากกว่าด้วยมาตรฐานการ <b>ก่อสร้าง</b>{" "}
-          พร้อมดูแลหลังส่งมอบโดยทีมช่างผู้ชำนาญการ ครอบคลุมพื้นที่กรุงเทพฯ นนทบุรี ปทุมธานี สมุทรปราการ และปริมณฑล
-          รวมถึงบริการ{" "}
-          <Link href="/works/renovate" className="hl">
-            รีโนเวทบ้าน
-          </Link>{" "}
-          และ{" "}
-          <Link href="/works/extension" className="hl">
-            ต่อเติมบ้าน
-          </Link>{" "}
-          ทุกรูปแบบ
+          <Rich parts={c.p2} />
         </p>
         <p>
-          ได้รับความไว้วางใจจากลูกค้าทั้งบ้านพักอาศัย อาคารพาณิชย์ โรงงาน และหน่วยงานรัฐ
-          ยกระดับงานก่อสร้างด้วย <b>ทีมวิศวกร</b> ที่ช่วยควบคุมคุณภาพ งบประมาณ และระยะเวลาให้เป็นไปตามแผน
+          <Rich parts={c.p3} />
         </p>
       </div>
     </section>

@@ -4,7 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHead } from "@/components/page-head";
 import { formatDate, getPost, getPosts } from "@/lib/blog";
-import { site } from "@/lib/site";
+import { getCopy } from "@/lib/cms/read";
+import { site as defaults } from "@/lib/site";
+import { getSiteData } from "@/lib/site-data";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -29,6 +31,7 @@ export default async function BlogPostPage({ params }: Props) {
   const found = await getPost((await params).slug);
   if (!found) notFound();
   const { post, html } = found;
+  const [c, site] = await Promise.all([getCopy("blog"), getSiteData()]);
   const related = (await getPosts()).filter((p) => p.slug !== post.slug).slice(0, 3);
 
   const jsonLd = {
@@ -38,17 +41,17 @@ export default async function BlogPostPage({ params }: Props) {
         "@type": "Article",
         headline: post.title,
         description: post.description,
-        image: new URL(post.cover, site.url).href,
+        image: new URL(post.cover, defaults.url).href,
         datePublished: post.date,
         dateModified: post.date,
-        author: { "@type": "Organization", name: site.company, url: site.url },
-        publisher: { "@type": "Organization", name: site.company, logo: new URL("/logo.webp", site.url).href },
+        author: { "@type": "Organization", name: defaults.company, url: defaults.url },
+        publisher: { "@type": "Organization", name: defaults.company, logo: new URL("/logo.webp", defaults.url).href },
       },
       {
         "@type": "BreadcrumbList",
         itemListElement: [
-          { "@type": "ListItem", position: 1, name: "หน้าแรก", item: site.url },
-          { "@type": "ListItem", position: 2, name: "บทความ", item: new URL("/blog", site.url).href },
+          { "@type": "ListItem", position: 1, name: "หน้าแรก", item: defaults.url },
+          { "@type": "ListItem", position: 2, name: "บทความ", item: new URL("/blog", defaults.url).href },
           { "@type": "ListItem", position: 3, name: post.title },
         ],
       },
@@ -61,7 +64,7 @@ export default async function BlogPostPage({ params }: Props) {
       <PageHead
         title={post.title}
         lead={`${post.category} · ${formatDate(post.date)} · อ่าน ${post.readTime}`}
-        crumbs={[{ label: "บทความ", href: "/blog" }, { label: post.title }]}
+        crumbs={[{ label: c.head.title, href: "/blog" }, { label: post.title }]}
       />
       <section className="works">
         <div className="container bl-layout">
@@ -72,8 +75,8 @@ export default async function BlogPostPage({ params }: Props) {
           </article>
           <aside className="bl-side">
             <div className="ct-card">
-              <h2>ขอใบเสนอราคา</h2>
-              <p>ส่งรูปหน้างานและรายละเอียดทาง LINE ทีมงานจะติดต่อกลับเพื่อนัดสำรวจ</p>
+              <h2>{c.article.quoteTitle}</h2>
+              <p>{c.article.quoteText}</p>
               <a href={site.lineHref} target="_blank" rel="noopener noreferrer" className="cbtn cb-line">
                 <span className="lg">LINE</span>
                 <div>
@@ -82,12 +85,13 @@ export default async function BlogPostPage({ params }: Props) {
               </a>
               <a href={site.phoneHref} className="cbtn cb-phone">
                 <div>
-                  โทร <b>{site.phone}</b>
+                  {c.article.callPrefix}
+                  <b>{site.phone}</b>
                 </div>
               </a>
             </div>
             <div className="ct-card">
-              <h2>บทความอื่น</h2>
+              <h2>{c.article.relatedTitle}</h2>
               <ul className="bl-related">
                 {related.map((p) => (
                   <li key={p.slug}>

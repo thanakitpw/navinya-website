@@ -1,37 +1,46 @@
 "use client";
 
 import { useState } from "react";
-import { site } from "@/lib/site";
+import type { globalCopy } from "@/lib/content/global";
 import { Icon } from "./icons";
 
-export function FloatingContact() {
+type Props = {
+  line: string;
+  lineHref: string;
+  phones: { label: string; href: string }[];
+  facebookHref: string;
+  emailHref: string;
+  copy: typeof globalCopy.floating;
+};
+
+export function FloatingContact({ line, lineHref, phones, facebookHref, emailHref, copy }: Props) {
   const [open, setOpen] = useState(true);
 
   return (
     <div className={open ? "fab open" : "fab"}>
       <div className="fab-list" id="fab-list" inert={!open}>
-        <a href={site.lineHref} target="_blank" rel="noopener noreferrer" className="fab-line">
-          <span>LINE: {site.line}</span>
+        <a href={lineHref} target="_blank" rel="noopener noreferrer" className="fab-line">
+          <span>{copy.linePrefix}{line}</span>
           <i>
             <Icon name="chat" />
           </i>
         </a>
-        {site.phones.map((p) => (
+        {phones.map((p) => (
           <a href={p.href} className="fab-phone" key={p.href}>
-            <span>โทร {p.label}</span>
+            <span>{copy.phonePrefix}{p.label}</span>
             <i>
               <Icon name="phone" />
             </i>
           </a>
         ))}
-        <a href={site.facebookHref} target="_blank" rel="noopener noreferrer" className="fab-fb">
-          <span>Facebook</span>
+        <a href={facebookHref} target="_blank" rel="noopener noreferrer" className="fab-fb">
+          <span>{copy.facebook}</span>
           <i>
             <Icon name="facebook" />
           </i>
         </a>
-        <a href={`mailto:${site.email}`} className="fab-mail">
-          <span>อีเมล</span>
+        <a href={emailHref} className="fab-mail">
+          <span>{copy.email}</span>
           <i>
             <Icon name="mail" />
           </i>
@@ -46,7 +55,7 @@ export function FloatingContact() {
         onClick={() => setOpen((v) => !v)}
       >
         <Icon name={open ? "x" : "chat"} />
-        {!open && <span>ติดต่อเรา</span>}
+        {!open && <span>{copy.open}</span>}
       </button>
     </div>
   );

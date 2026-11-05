@@ -1,27 +1,19 @@
-import Link from "next/link";
+import { Rich } from "@/components/rich";
+import { getCopy } from "@/lib/cms/read";
 
-export function SeoText() {
+export async function SeoText() {
+  const { seo: c } = await getCopy("home");
   return (
     <section className="seo">
       <div className="container">
         <p>
-          <b>รับเหมาก่อสร้าง</b> คือ บริการที่ดูแลงานก่อสร้างตั้งแต่การวางแผน จัดหาวัสดุ ควบคุมแรงงาน จนถึงส่งมอบงาน ที่
-          บริษัท นวิญญา 1979 จำกัด เราให้บริการครบตั้งแต่{" "}
-          <Link href="/works/demolition" className="hl">
-            รื้อถอนทุบตึก
-          </Link>{" "}
-          ไปจนถึงงานตกแต่งภายใน
+          <Rich parts={c.p1} />
         </p>
         <p>
-          ไม่ว่าจะเป็นการ <b>รีโนเวทบ้าน</b> ต่อเติมครัว ต่อเติมโรงจอดรถ หรือก่อสร้างอาคารใหม่ ทีมงานของเราพร้อมให้คำปรึกษา
-          สำรวจหน้างาน และจัดทำใบเสนอราคาที่แจกแจงทุกรายการอย่างโปร่งใส
+          <Rich parts={c.p2} />
         </p>
         <p>
-          นอกจากงานโครงสร้าง เรายังมีบริการ <b>บิ้วอิน</b>{" "}
-          <Link href="/works/curtain" className="hl">
-            ผ้าม่าน วอลเปเปอร์
-          </Link>{" "}
-          และ <b>ประตูม้วน</b> ทำให้ลูกค้าไม่ต้องจ้างหลายเจ้า ประหยัดทั้งเวลาและงบประมาณ ครอบคลุมพื้นที่กรุงเทพฯ และปริมณฑล
+          <Rich parts={c.p3} />
         </p>
       </div>
     </section>

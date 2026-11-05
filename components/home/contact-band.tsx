@@ -1,4 +1,5 @@
-import { site } from "@/lib/site";
+import { getCopy } from "@/lib/cms/read";
+import { getSiteData } from "@/lib/site-data";
 
 // Filled white icons, matching the client's reference contact band.
 function PhoneIcon() {
@@ -43,34 +44,37 @@ function PinIcon() {
   );
 }
 
-export function ContactBand() {
+export async function ContactBand() {
+  const [{ contactBand: c }, site] = await Promise.all([getCopy("home"), getSiteData()]);
   return (
     <section className="cband" id="contact">
       <div className="container">
-        <h2>ติดต่อสอบถามบริการรับเหมาก่อสร้าง</h2>
+        <h2>{c.title}</h2>
         <div className="row">
           <a href={site.phoneHref} className="cbtn cb-phone">
             <PhoneIcon />
             <div>
-              นัดสำรวจหน้างาน
+              {c.phoneTitle}
               <br />
-              โทร: <b>{site.phone}</b>
+              {c.phonePrefix}
+              <b>{site.phone}</b>
             </div>
           </a>
           <a href={site.lineHref} target="_blank" rel="noopener noreferrer" className="cbtn cb-line">
             <LineIcon />
             <div>
-              ส่งรูปหน้างานทางไลน์
+              {c.lineTitle}
               <br />
-              Line: <b>{site.line}</b>
+              {c.linePrefix}
+              <b>{site.line}</b>
             </div>
           </a>
           <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="cbtn cb-map">
             <PinIcon />
             <div>
-              ดูเส้นทาง Google Map
+              {c.mapTitle}
               <br />
-              สำนักงาน บริษัท นวิญญา 1979 จำกัด
+              {c.mapNote}
             </div>
           </a>
         </div>

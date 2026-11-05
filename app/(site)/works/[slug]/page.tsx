@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHead } from "@/components/page-head";
 import { Gallery } from "@/components/works/gallery";
+import { getSiteData } from "@/lib/site-data";
 import { getCategory, getProjects, workCategories } from "@/lib/works";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -20,7 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function WorkCategoryPage({ params }: Props) {
   const { slug } = await params;
-  const category = getCategory(slug);
+  const site = await getSiteData();
+  const category = site.works.find((c) => c.slug === slug);
   if (!category) notFound();
 
   return (
@@ -28,12 +30,12 @@ export default async function WorkCategoryPage({ params }: Props) {
       <PageHead
         title={category.heading}
         lead={category.intro}
-        crumbs={[{ label: "ผลงาน", href: "/works" }, { label: category.title }]}
+        crumbs={[{ label: site.nav.works, href: "/works" }, { label: category.title }]}
       />
       <section className="works">
         <div className="container">
           <div className="wk-tabs">
-            {workCategories.map((c) => (
+            {site.works.map((c) => (
               <Link href={`/works/${c.slug}`} key={c.slug} className={c.slug === slug ? "on" : undefined}>
                 {c.title}
               </Link>
@@ -42,7 +44,10 @@ export default async function WorkCategoryPage({ params }: Props) {
           {(await getProjects(slug)).map((p) => (
             <div className="proj" key={p.title}>
               <h2>
-                {p.title} <small>{p.photos.length} รูป</small>
+                {p.title}{" "}
+                <small>
+                  {p.photos.length} {site.workLabels.photoUnit}
+                </small>
               </h2>
               <Gallery photos={p.photos} title={p.title} />
             </div>

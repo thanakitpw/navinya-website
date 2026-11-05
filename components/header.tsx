@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { mainNav } from "@/lib/site";
+import type { NavItem } from "@/lib/site-data";
 import { Icon } from "./icons";
 import { LogoBadge } from "./logo-badge";
 
-export function Header() {
+export function Header({ nav, quoteLabel }: { nav: NavItem[]; quoteLabel: string }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const isActive = (href: string) => (href === "/" ? pathname === "/" : href.startsWith("/") && pathname.startsWith(href));
@@ -21,8 +21,8 @@ export function Header() {
           </Link>
           <nav className="main">
             <ul>
-              {mainNav.map((item) => (
-                <li key={item.label}>
+              {nav.map((item) => (
+                <li key={item.href}>
                   <Link href={item.href} className={isActive(item.href) ? "active" : undefined}>
                     {item.label}
                     {item.children && <Icon name="down" className="caret" />}
@@ -30,7 +30,7 @@ export function Header() {
                   {item.children && (
                     <div className="drop">
                       {item.children.map((c) => (
-                        <Link key={c.label} href={c.href}>
+                        <Link key={c.href} href={c.href}>
                           {c.label}
                         </Link>
                       ))}
@@ -42,7 +42,7 @@ export function Header() {
           </nav>
           <Link href="/contact#quote" className="hd-quote">
             <Icon name="quote" />
-            ขอใบเสนอราคา
+            {quoteLabel}
           </Link>
           <button className="burger" aria-label="เมนู" aria-expanded={open} onClick={() => setOpen(true)}>
             <Icon name="menu" />
@@ -58,11 +58,11 @@ export function Header() {
         }}
       >
         <div className="p">
-          {mainNav.map((item) => (
-            <div key={item.label}>
+          {nav.map((item) => (
+            <div key={item.href}>
               <Link href={item.href}>{item.label}</Link>
               {item.children?.map((c) => (
-                <Link key={c.label} className="sub" href={c.href}>
+                <Link key={c.href} className="sub" href={c.href}>
                   {c.label}
                 </Link>
               ))}

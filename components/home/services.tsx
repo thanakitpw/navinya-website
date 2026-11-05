@@ -1,34 +1,37 @@
-import Image from "next/image";
-import { services } from "@/lib/site";
+import { CmsImage } from "@/components/cms-image";
+import { getCopy } from "@/lib/cms/read";
+import { getSiteData } from "@/lib/site-data";
 
-export function Services() {
+export async function Services() {
+  const [{ services: c }, { services }] = await Promise.all([getCopy("home"), getSiteData()]);
   return (
     <section id="services">
       <div className="container">
         <div className="svc-box">
           <h2>
-            บริการของเรา <span>ครบวงจร</span>
+            {c.title}
+            <span>{c.accent}</span>
           </h2>
           <p>
-            บริษัท นวิญญา 1979 จำกัด มีบริการดังต่อไปนี้ งานรื้อถอนทุบตึก งานก่อสร้าง งานรีโนเวท งานต่อเติม งานบิ้วอิน ผ้าม่าน วอลเปเปอร์
-            <span className="nw">และประตูม้วน</span>
+            {c.text}
+            <span className="nw">{c.textEnd}</span>
           </p>
           <span className="uline" />
           <div className="svc-grid">
             {services.map((s) => (
-              <div className="svc-card" key={s.name}>
-                <Image src={s.image} alt={s.name} width={600} height={400} sizes="(max-width: 640px) 100vw, 340px" />
+              <div className="svc-card" key={s.href}>
+                <CmsImage src={s.image} alt={s.name} width={600} height={400} sizes="(max-width: 640px) 100vw, 340px" />
                 <div className="b">
                   <h3>{s.name}</h3>
                   <p>{s.summary}</p>
                   <a href={s.href} className="pill-btn">
-                    ดูข้อมูลเพิ่มเติม
+                    {c.more}
                   </a>
                 </div>
               </div>
             ))}
             <div className="svc-last">
-              <Image
+              <CmsImage
                 src={"/images/demolition/nonthaburi-aerial.webp"}
                 alt=""
                 width={1000}
@@ -37,11 +40,14 @@ export function Services() {
               />
               <div className="badge">
                 <b>
-                  ครบ จบ
+                  {c.badge1}
                   <br />
-                  ในทีมเดียว
+                  {c.badge2}
                 </b>
-                <span>{services.length} บริการ ดูแลโดย บริษัท นวิญญา 1979 จำกัด</span>
+                <span>
+                  {services.length}
+                  {c.badgeNote}
+                </span>
               </div>
             </div>
           </div>

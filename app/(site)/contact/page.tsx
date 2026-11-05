@@ -2,30 +2,36 @@ import type { Metadata } from "next";
 import { Icon } from "@/components/icons";
 import { PageHead } from "@/components/page-head";
 import { QuoteForm } from "@/components/quote-form";
-import { site } from "@/lib/site";
+import { getCopy } from "@/lib/cms/read";
+import { site as defaults } from "@/lib/site";
+import { getSiteData } from "@/lib/site-data";
 
 export const metadata: Metadata = {
   title: "ติดต่อเรา | บริษัท นวิญญา 1979 จำกัด",
-  description: `ติดต่อ ${site.company} โทร ${site.phones.map((p) => p.label).join(", ")} LINE ID: ${site.line}`,
+  description: `ติดต่อ ${defaults.company} โทร ${defaults.phones.map((p) => p.label).join(", ")} LINE ID: ${defaults.line}`,
 };
 
-const steps = [
-  "ส่งรูปหน้างาน หรือแบบ / BOQ (ถ้ามี) ทาง LINE หรืออีเมล",
-  "แจ้งที่ตั้งหน้างาน ขนาดพื้นที่ และประเภทงานที่ต้องการ",
-  "ทีมงานติดต่อกลับเพื่อนัดสำรวจหน้างาน",
-  "รับใบเสนอราคาพร้อมแผนดำเนินงาน",
-];
+export default async function ContactPage() {
+  const [c, site] = await Promise.all([getCopy("contact"), getSiteData()]);
+  const jobTypes = [...site.services.map((s) => s.name), ...c.form.jobExtra];
 
-export default function ContactPage() {
   return (
     <>
-      <PageHead title="ติดต่อเรา" lead="สอบถามบริการ นัดสำรวจหน้างาน หรือขอใบเสนอราคา" crumbs={[{ label: "ติดต่อเรา" }]} />
+      <PageHead title={c.head.title} lead={c.head.lead} crumbs={[{ label: site.nav.contact }]} />
       <section className="works">
         <div className="container">
           <div className="ct-card qf-card" id="quote">
-            <h2>ขอใบเสนอราคา</h2>
-            <p className="qf-lead">กรอกรายละเอียดงาน ทีมงานจะติดต่อกลับเพื่อนัดสำรวจหน้างานและเสนอราคา</p>
-            <QuoteForm />
+            <h2>{c.quote.title}</h2>
+            <p className="qf-lead">{c.quote.lead}</p>
+            <QuoteForm
+              copy={c.form}
+              jobTypes={jobTypes}
+              company={site.company}
+              line={site.line}
+              lineHref={site.lineHref}
+              phone={site.phone}
+              phoneHref={site.phoneHref}
+            />
           </div>
         </div>
         <div className="container ct-grid">
@@ -39,7 +45,7 @@ export default function ContactPage() {
                     <Icon name="phone" />
                   </span>
                   <div>
-                    <small>โทรศัพท์</small>
+                    <small>{c.details.phone}</small>
                     <a href={p.href}>{p.label}</a>
                   </div>
                 </li>
@@ -49,7 +55,7 @@ export default function ContactPage() {
                   <Icon name="chat" />
                 </span>
                 <div>
-                  <small>LINE ID</small>
+                  <small>{c.details.line}</small>
                   <a href={site.lineHref} target="_blank" rel="noopener noreferrer">
                     {site.line}
                   </a>
@@ -60,7 +66,7 @@ export default function ContactPage() {
                   <Icon name="facebook" />
                 </span>
                 <div>
-                  <small>Facebook</small>
+                  <small>{c.details.facebook}</small>
                   <a href={site.facebookHref} target="_blank" rel="noopener noreferrer">
                     {site.company}
                   </a>
@@ -71,8 +77,8 @@ export default function ContactPage() {
                   <Icon name="mail" />
                 </span>
                 <div>
-                  <small>อีเมล</small>
-                  <a href={`mailto:${site.email}`}>{site.email}</a>
+                  <small>{c.details.email}</small>
+                  <a href={site.emailHref}>{site.email}</a>
                 </div>
               </li>
               <li>
@@ -80,7 +86,7 @@ export default function ContactPage() {
                   <Icon name="pin" />
                 </span>
                 <div>
-                  <small>สำนักงาน</small>
+                  <small>{c.details.office}</small>
                   <a href={site.mapHref} target="_blank" rel="noopener noreferrer">
                     {site.address}
                   </a>
@@ -91,7 +97,7 @@ export default function ContactPage() {
               <a href={site.phoneHref} className="cbtn cb-phone">
                 <Icon name="phone" />
                 <div>
-                  โทรเลย
+                  {c.details.callNow}
                   <br />
                   <b>{site.phone}</b>
                 </div>
@@ -99,7 +105,7 @@ export default function ContactPage() {
               <a href={site.lineHref} target="_blank" rel="noopener noreferrer" className="cbtn cb-line">
                 <span className="lg">LINE</span>
                 <div>
-                  เพิ่มเพื่อน
+                  {c.details.addLine}
                   <br />
                   <b>{site.line}</b>
                 </div>
@@ -107,10 +113,10 @@ export default function ContactPage() {
             </div>
           </div>
           <div className="ct-card">
-            <h2>ขั้นตอนขอใบเสนอราคา</h2>
+            <h2>{c.steps.title}</h2>
             <ol className="ct-steps">
-              {steps.map((s, k) => (
-                <li key={s}>
+              {c.steps.items.map((s, k) => (
+                <li key={k}>
                   <b>{k + 1}</b>
                   {s}
                 </li>
@@ -124,7 +130,7 @@ export default function ContactPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
             <a href={site.mapHref} target="_blank" rel="noopener noreferrer" className="ct-maplink">
-              เปิดใน Google Maps ›
+              {c.steps.mapLink}
             </a>
           </div>
         </div>

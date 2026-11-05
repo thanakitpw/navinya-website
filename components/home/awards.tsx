@@ -1,26 +1,28 @@
-import Image from "next/image";
 import Link from "next/link";
+import { CmsImage } from "@/components/cms-image";
+import { getCopy } from "@/lib/cms/read";
 
-export function Awards() {
+export async function Awards() {
+  const { awards: c } = await getCopy("home");
   return (
     <section className="award">
       <div className="container">
-        <h3>ผลงานคุณภาพ ได้รับความไว้วางใจจากลูกค้าทั่วกรุงเทพฯ และปริมณฑล</h3>
+        <h3>{c.title}</h3>
         <div className="row">
           <div className="aw">
-            <Image src={"/images/builtin/handover.webp"} alt="" width={600} height={450} sizes="(max-width: 640px) 70vw, 360px" />
-            <b>ทีมงานรับมอบงานและตรวจรับร่วมกับลูกค้า</b>
+            <CmsImage src={"/images/builtin/handover.webp"} alt="" width={600} height={450} sizes="(max-width: 640px) 70vw, 360px" />
+            <b>{c.handover}</b>
           </div>
           <Link href="/about/certificates" className="aw">
-            <Image
+            <CmsImage
               src="/certs/company-registration.webp"
-              alt="หนังสือรับรองการจดทะเบียน บริษัท นวิญญา 1979 จำกัด"
+              alt={c.registrationAlt}
               width={1111}
               height={1400}
               sizes="(max-width: 640px) 70vw, 360px"
               className="doc-img"
             />
-            <b>หนังสือรับรองการจดทะเบียนบริษัท</b>
+            <b>{c.registration}</b>
           </Link>
         </div>
       </div>

@@ -1,12 +1,14 @@
 import Link from "next/link";
+import { getSiteData } from "@/lib/site-data";
 
-const tabs = [
-  { label: "ประวัติบริษัท", href: "/about" },
-  { label: "ทีมงานของเรา", href: "/about/team" },
-  { label: "ใบรับรอง / ใบอนุญาต", href: "/about/certificates" },
-];
+export async function AboutTabs({ current }: { current: string }) {
+  const { nav } = await getSiteData();
+  const tabs = [
+    { label: nav.history, href: "/about" },
+    { label: nav.team, href: "/about/team" },
+    { label: nav.certificates, href: "/about/certificates" },
+  ];
 
-export function AboutTabs({ current }: { current: string }) {
   return (
     <div className="wk-tabs">
       {tabs.map((t) => (

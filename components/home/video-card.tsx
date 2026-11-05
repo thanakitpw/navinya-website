@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { CmsImage } from "@/components/cms-image";
 import { useState } from "react";
 import { videoSrc, type Video } from "@/lib/videos";
 
@@ -19,7 +19,7 @@ function VideoItem({ v }: { v: Video }) {
 
   return (
     <button type="button" className={cls} onClick={() => setPlaying(true)} aria-label={`เล่นวิดีโอ ${v.caption}`}>
-      <Image
+      <CmsImage
         src={v.poster}
         alt=""
         width={v.vertical ? 540 : 960}

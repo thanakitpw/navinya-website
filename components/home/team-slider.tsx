@@ -1,21 +1,17 @@
-import Image from "next/image";
 import { Fragment } from "react";
 import { Carousel } from "@/components/carousel";
+import { CmsImage } from "@/components/cms-image";
+import { getCopy } from "@/lib/cms/read";
 
-const slides = [
-  { title: "ทีมช่างประสบการณ์ตรง", accent: "ดูแลจนถึงวันส่งมอบ", image: "/images/renovate/briefing.webp" },
-  { title: "ควบคุมงานโดยวิศวกร", accent: "ทุกโครงการ", image: "/images/demolition/ploenchit-excavators.webp" },
-  { title: "งานตกแต่งภายใน", accent: "บิ้วอิน ผ้าม่าน วอลเปเปอร์", image: "/images/builtin/tv-wall.webp" },
-];
-
-export function TeamSlider() {
+export async function TeamSlider() {
+  const { team } = await getCopy("home");
   return (
     <section className="team">
       <Carousel
         arrows
-        slides={slides.map((s) => (
-          <Fragment key={s.title}>
-            <Image src={s.image} alt="" width={1400} height={933} sizes="(max-width: 640px) 88vw, 64vw" />
+        slides={team.map((s) => (
+          <Fragment key={s.image}>
+            <CmsImage src={s.image} alt="" width={1400} height={933} sizes="(max-width: 640px) 88vw, 64vw" />
             <div className="ov">
               <b>
                 {s.title}

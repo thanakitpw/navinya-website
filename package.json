@@ -7,9 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "sync:posts": "node --env-file=.env.local scripts/sync-posts.mjs"
+    "sync:posts": "node --env-file=.env.local scripts/sync-posts.mjs",
+    "cms:add-admin": "node --env-file=.env.local scripts/add-cms-admin.mjs"
   },
   "dependencies": {
+    "@supabase/ssr": "0.12.7",
     "@supabase/supabase-js": "2.118.0",
     "marked": "18.1.1",
     "next": "^16.4.2",

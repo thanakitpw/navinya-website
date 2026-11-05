@@ -1,13 +1,14 @@
-import { trustVideos } from "@/lib/videos";
+import { getCopy } from "@/lib/cms/read";
 import { VideoGrid } from "./video-card";
 
-export function TrustVideos() {
+export async function TrustVideos() {
+  const { trust: c } = await getCopy("home");
   return (
     <section className="trust">
       <div className="container">
-        <h3>การันตีงานคุณภาพ ควบคุมงานโดยทีมวิศวกร</h3>
-        <span className="mark">ดูบรรยากาศการทำงานจริงของทีม บริษัท นวิญญา 1979 จำกัด</span>
-        <VideoGrid videos={trustVideos} />
+        <h3>{c.title}</h3>
+        <span className="mark">{c.note}</span>
+        <VideoGrid videos={c.videos} />
       </div>
     </section>
   );

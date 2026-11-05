@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
-import { BottomBar } from "@/components/bottom-bar";
-import { FloatingContact } from "@/components/floating-contact";
-import { Footer } from "@/components/footer";
-import { Header } from "@/components/header";
-import { IconSprite } from "@/components/icons";
 import { site } from "@/lib/site";
 import "./globals.css";
 
@@ -24,14 +19,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="th" className={kanit.variable}>
-      <body>
-        <IconSprite />
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <FloatingContact />
-        <BottomBar />
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

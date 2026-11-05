@@ -2,33 +2,34 @@ import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
 import { getPosts } from "@/lib/blog";
-import { services, site } from "@/lib/site";
+import { getSiteData } from "@/lib/site-data";
 import { Icon } from "./icons";
 import { LogoBadge } from "./logo-badge";
 
 export async function Footer() {
-  const posts = await getPosts();
+  const [posts, site] = await Promise.all([getPosts(), getSiteData()]);
+  const c = site.footer;
   return (
     <footer>
       <div className="container ft">
         <div className="about">
           <LogoBadge className="ft-logo" />
           <b>{site.company}</b>
-          รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน ครบวงจร
+          {c.about}
         </div>
         <div>
-          <h4>บริการของเรา</h4>
+          <h4>{c.servicesTitle}</h4>
           <span className="uline left" />
           <ul className="lnk">
-            {services.map((s) => (
-              <li key={s.name}>
+            {site.services.map((s) => (
+              <li key={s.href}>
                 <a href={s.href}>{s.name}</a>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <h4>บทความล่าสุด</h4>
+          <h4>{c.postsTitle}</h4>
           <span className="uline left" />
           <ul className="posts">
             {posts.slice(0, 3).map((p) => (
@@ -40,7 +41,7 @@ export async function Footer() {
           </ul>
         </div>
         <div>
-          <h4>ติดต่อเรา</h4>
+          <h4>{c.contactTitle}</h4>
           <span className="uline left" />
           <ul className="ct">
             <li>
@@ -48,7 +49,7 @@ export async function Footer() {
                 <Icon name="pin" />
               </span>
               <div>
-                สำนักงานใหญ่
+                {c.office}
                 <br />
                 <a href={site.mapHref} target="_blank" rel="noopener noreferrer">
                   {site.address}
@@ -60,7 +61,7 @@ export async function Footer() {
                 <Icon name="phone" />
               </span>
               <div>
-                <b>นัดสำรวจหน้างาน</b>
+                <b>{c.survey}</b>
                 {site.phones.map((p) => (
                   <Fragment key={p.href}>
                     <br />
@@ -74,9 +75,9 @@ export async function Footer() {
                 <Icon name="chat" />
               </span>
               <div>
-                <b>ส่งรูปหน้างานทางไลน์</b>
+                <b>{c.linePhotos}</b>
                 <br />
-                <a href={site.lineHref} target="_blank" rel="noopener noreferrer">LINE ID: {site.line}</a>
+                <a href={site.lineHref} target="_blank" rel="noopener noreferrer">{c.linePrefix}{site.line}</a>
               </div>
             </li>
             <li>
@@ -84,7 +85,7 @@ export async function Footer() {
                 <Icon name="facebook" />
               </span>
               <div>
-                <b>ติดตามผลงานทาง Facebook</b>
+                <b>{c.facebook}</b>
                 <br />
                 <a href={site.facebookHref} target="_blank" rel="noopener noreferrer">
                   {site.company}
@@ -96,14 +97,14 @@ export async function Footer() {
                 <Icon name="mail" />
               </span>
               <div>
-                <b>อีเมล</b>
+                <b>{c.email}</b>
                 <br />
-                <a href={`mailto:${site.email}`}>{site.email}</a>
+                <a href={site.emailHref}>{site.email}</a>
               </div>
             </li>
           </ul>
           <div className="soc">
-            <a href={`mailto:${site.email}`} className="soc-mail" aria-label="Email">
+            <a href={site.emailHref} className="soc-mail" aria-label="Email">
               <Icon name="mail" />
             </a>
             <a href={site.facebookHref} target="_blank" rel="noopener noreferrer" className="soc-fb" aria-label="Facebook">
@@ -116,7 +117,7 @@ export async function Footer() {
         </div>
       </div>
       <div className="copy">
-        Copyright {new Date().getFullYear()} © <Link href="/">บริษัท นวิญญา 1979 จำกัด รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม</Link> . All
+        Copyright {new Date().getFullYear()} © <Link href="/">{c.copyright}</Link> . All
         Rights Reserved
       </div>
     </footer>

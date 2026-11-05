@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { formatDate, getPosts } from "@/lib/blog";
+import { getCopy } from "@/lib/cms/read";
 
 export async function Blog() {
-  const posts = await getPosts();
+  const [posts, { blog: c }] = await Promise.all([getPosts(), getCopy("home")]);
   return (
     <section className="blog">
       <div className="container">
         <div className="bh">
           <h3>
-            บทความเกี่ยวกับงานก่อสร้างและตกแต่ง
+            {c.title}
             <span className="uline left" />
           </h3>
-          <Link href="/blog">อ่านต่อ ›</Link>
+          <Link href="/blog">{c.more}</Link>
         </div>
         <div className="b-grid">
           {posts.slice(0, 4).map((p) => (
@@ -21,7 +22,7 @@ export async function Blog() {
               <div className="b">
                 <h4>{p.title}</h4>
                 <small>{formatDate(p.date)}</small>
-                <span className="rm">อ่านต่อ</span>
+                <span className="rm">{c.readMore}</span>
               </div>
             </Link>
           ))}

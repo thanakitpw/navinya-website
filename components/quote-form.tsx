@@ -1,15 +1,23 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { services, site } from "@/lib/site";
+import type { contactCopy } from "@/lib/content/pages";
 import { supabase } from "@/lib/supabase";
 
-const jobTypes = [...services.map((s) => s.name), "งานถมดิน ปรับพื้นที่", "อื่น ๆ"];
-const channels = ["โทรศัพท์", "LINE", "อีเมล"];
 const maxFiles = 10;
 const maxFileSize = 10 * 1024 * 1024;
 
 type Status = "idle" | "sending" | "sent" | "error";
+
+type Props = {
+  copy: typeof contactCopy.form;
+  jobTypes: string[];
+  company: string;
+  line: string;
+  lineHref: string;
+  phone: string;
+  phoneHref: string;
+};
 
 function text(form: FormData, key: string) {
   const v = String(form.get(key) ?? "").trim();
@@ -49,25 +57,26 @@ async function submit(form: FormData) {
   if (error) throw new Error("ส่งข้อมูลไม่สำเร็จ");
 }
 
-function Fallback() {
+function Fallback({ copy, line, lineHref, phone, phoneHref }: Pick<Props, "copy" | "line" | "lineHref" | "phone" | "phoneHref">) {
   return (
     <div className="ct-actions">
-      <a href={site.lineHref} target="_blank" rel="noopener noreferrer" className="cbtn cb-line">
+      <a href={lineHref} target="_blank" rel="noopener noreferrer" className="cbtn cb-line">
         <span className="lg">LINE</span>
         <div>
-          <b>{site.line}</b>
+          <b>{line}</b>
         </div>
       </a>
-      <a href={site.phoneHref} className="cbtn cb-phone">
+      <a href={phoneHref} className="cbtn cb-phone">
         <div>
-          โทร <b>{site.phone}</b>
+          {copy.callPrefix}<b>{phone}</b>
         </div>
       </a>
     </div>
   );
 }
 
-export function QuoteForm() {
+export function QuoteForm({ copy, jobTypes, company, line, lineHref, phone, phoneHref }: Props) {
+  const contact = { copy, line, lineHref, phone, phoneHref };
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -86,9 +95,9 @@ export function QuoteForm() {
   if (status === "sent") {
     return (
       <div className="qf-done" role="status">
-        <b>ได้รับคำขอใบเสนอราคาแล้ว</b>
-        <p>ทีมงานจะติดต่อกลับตามช่องทางที่เลือกไว้ ถ้างานเร่งด่วน ทัก LINE หรือโทรหาเราได้ทันที</p>
-        <Fallback />
+        <b>{copy.doneTitle}</b>
+        <p>{copy.doneText}</p>
+        <Fallback {...contact} />
       </div>
     );
   }
@@ -98,39 +107,39 @@ export function QuoteForm() {
       <div className="qf-row">
         <label>
           <span>
-            ชื่อ-นามสกุล <i>*</i>
+            {copy.name} <i>*</i>
           </span>
           <input name="name" required autoComplete="name" />
         </label>
         <label>
-          <span>บริษัท / หน่วยงาน</span>
+          <span>{copy.company}</span>
           <input name="company" autoComplete="organization" />
         </label>
       </div>
       <div className="qf-row">
         <label>
           <span>
-            เบอร์โทรศัพท์ <i>*</i>
+            {copy.phone} <i>*</i>
           </span>
           <input name="phone" type="tel" required autoComplete="tel" inputMode="tel" />
         </label>
         <label>
-          <span>อีเมล</span>
+          <span>{copy.email}</span>
           <input name="email" type="email" autoComplete="email" />
         </label>
       </div>
       <div className="qf-row">
         <label>
-          <span>LINE ID</span>
+          <span>{copy.line}</span>
           <input name="line" />
         </label>
         <label>
           <span>
-            ประเภทงาน <i>*</i>
+            {copy.job} <i>*</i>
           </span>
           <select name="job" required defaultValue="">
             <option value="" disabled>
-              เลือกประเภทงาน
+              {copy.jobPlaceholder}
             </option>
             {jobTypes.map((j) => (
               <option key={j}>{j}</option>
@@ -141,28 +150,28 @@ export function QuoteForm() {
       <div className="qf-row">
         <label>
           <span>
-            สถานที่หน้างาน (จังหวัด / เขต) <i>*</i>
+            {copy.location} <i>*</i>
           </span>
           <input name="location" required />
         </label>
         <label>
-          <span>ขนาดพื้นที่โดยประมาณ</span>
-          <input name="area" placeholder="เช่น 2 ไร่ / 300 ตร.ม. / 3 คูหา" />
+          <span>{copy.area}</span>
+          <input name="area" placeholder={copy.areaPlaceholder} />
         </label>
       </div>
       <label>
         <span>
-          รายละเอียดงาน <i>*</i>
+          {copy.detail} <i>*</i>
         </span>
-        <textarea name="detail" rows={5} required placeholder="ขอบเขตงาน ช่วงเวลาที่ต้องการเริ่มงาน หรือมี BOQ / แบบอยู่แล้วหรือไม่" />
+        <textarea name="detail" rows={5} required placeholder={copy.detailPlaceholder} />
       </label>
       <label>
-        <span>แนบรูปหน้างาน / แบบ / BOQ</span>
+        <span>{copy.files}</span>
         <input name="files" type="file" multiple accept="image/*,.pdf" />
       </label>
       <fieldset>
-        <legend>ช่องทางที่สะดวกให้ติดต่อกลับ</legend>
-        {channels.map((c, k) => (
+        <legend>{copy.channelLegend}</legend>
+        {copy.channels.map((c, k) => (
           <label className="qf-radio" key={c}>
             <input type="radio" name="channel" value={c} defaultChecked={k === 0} />
             {c}
@@ -171,17 +180,17 @@ export function QuoteForm() {
       </fieldset>
       <label className="qf-check">
         <input type="checkbox" name="consent" required />
-        ยินยอมให้ {site.company} เก็บและใช้ข้อมูลนี้เพื่อติดต่อกลับและจัดทำใบเสนอราคา
+        {copy.consentStart}{company}{copy.consentEnd}
       </label>
       {status === "error" && (
         <div className="qf-done qf-err" role="alert">
           <b>{error}</b>
-          <p>กรุณาลองส่งอีกครั้ง หรือส่งรายละเอียดทาง LINE หรือโทรหาเราโดยตรง</p>
-          <Fallback />
+          <p>{copy.errorText}</p>
+          <Fallback {...contact} />
         </div>
       )}
       <button type="submit" className="qf-submit" disabled={status === "sending"}>
-        {status === "sending" ? "กำลังส่ง..." : "ส่งคำขอใบเสนอราคา"}
+        {status === "sending" ? copy.sending : copy.submit}
       </button>
     </form>
   );

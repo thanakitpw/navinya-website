@@ -1,0 +1,65 @@
+import { services, site } from "@/lib/site";
+import { workCategories } from "@/lib/work-categories";
+
+// Text shared by every page: contact details, menus, footer, service and work category names.
+export const globalCopy = {
+  contact: {
+    company: site.company,
+    companyEn: site.companyEn,
+    phones: site.phones.map((p) => p.label),
+    line: site.line,
+    email: site.email,
+    address: site.address,
+  },
+  nav: {
+    home: "หน้าแรก",
+    about: "เกี่ยวกับเรา",
+    history: "ประวัติบริษัท",
+    team: "ทีมงานของเรา",
+    certificates: "ใบรับรอง / ใบอนุญาต",
+    services: "บริการของเรา",
+    works: "ผลงาน",
+    contact: "ติดต่อเรา",
+    quote: "ขอใบเสนอราคา",
+  },
+  services,
+  works: workCategories,
+  workLabels: { photoUnit: "รูป" },
+  footer: {
+    about: "รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม บิ้วอิน ผ้าม่าน วอลเปเปอร์ และประตูม้วน ครบวงจร",
+    servicesTitle: "บริการของเรา",
+    postsTitle: "บทความล่าสุด",
+    contactTitle: "ติดต่อเรา",
+    office: "สำนักงานใหญ่",
+    survey: "นัดสำรวจหน้างาน",
+    linePhotos: "ส่งรูปหน้างานทางไลน์",
+    linePrefix: "LINE ID: ",
+    facebook: "ติดตามผลงานทาง Facebook",
+    email: "อีเมล",
+    copyright: "บริษัท นวิญญา 1979 จำกัด รับเหมาก่อสร้าง รื้อถอนทุบตึก รีโนเวท ต่อเติม",
+  },
+  bottomBar: {
+    line: "แอดไลน์",
+    phone: "โทรเลย",
+    map: "แผนที่หน้าร้าน",
+    facebook: "Facebook",
+  },
+  floating: {
+    linePrefix: "LINE: ",
+    phonePrefix: "โทร ",
+    facebook: "Facebook",
+    email: "อีเมล",
+    open: "ติดต่อเรา",
+  },
+  cookie: {
+    message: "เราใช้คุกกี้เพื่อพัฒนาประสิทธิภาพ และประสบการณ์ที่ดีในการใช้เว็บไซต์ของคุณ คุณสามารถจัดการความเป็นส่วนตัวของคุณได้เองโดยคลิกที่",
+    settings: "ตั้งค่า",
+    accept: "ยอมรับ",
+    save: "บันทึกการตั้งค่า",
+    necessaryTitle: "คุกกี้ที่จำเป็น",
+    necessaryText: "ช่วยให้เว็บไซต์ทำงานได้ตามปกติ ปิดการใช้งานไม่ได้",
+    alwaysOn: "เปิดตลอด",
+    analyticsTitle: "คุกกี้เพื่อการวิเคราะห์",
+    analyticsText: "ช่วยให้เราเข้าใจการใช้งานเว็บไซต์ เพื่อนำไปปรับปรุงให้ดีขึ้น",
+  },
+};
