@@ -188,7 +188,7 @@ export const homeCopy = {
     ],
   },
   contactBand: {
-    title: "ติดต่อสอบถามบริการรับเหมาก่อสร้าง",
+    title: "ติดต่อสอบถามบริการ",
     phoneTitle: "นัดสำรวจหน้างาน",
     phonePrefix: "โทร: ",
     lineTitle: "ส่งรูปหน้างานทางไลน์",

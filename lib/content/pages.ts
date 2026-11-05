@@ -41,9 +41,18 @@ export const teamCopy = {
   heroAlt: "ทีมงาน บริษัท นวิญญา 1979 จำกัด",
   photosTitle: "บรรยากาศการทำงาน",
   photos: [
-    { src: "/images/renovate/briefing.webp", alt: "ประชุมทีมช่างก่อนเริ่มงานรีโนเวทออฟฟิศ ตึกธนิยะ" },
-    { src: "/images/construction/lift-install.webp", alt: "ทีมช่างติดตั้งลิฟต์" },
-    { src: "/images/demolition/site-survey.webp", alt: "ทีมงานสำรวจหน้างานก่อนรื้อถอน" },
+    { src: "/images/team/team-01.webp", alt: "ประชุมทีมงานก่อนเริ่มงานภายในอาคาร" },
+    { src: "/images/team/team-02.webp", alt: "ทีมช่างเข้าแถวรับฟังการชี้แจงหน้างาน" },
+    { src: "/images/team/team-03.webp", alt: "ทีมงานประชุมร่วมกันระหว่างงานรื้อถอนภายในอาคาร" },
+    { src: "/images/team/team-04.webp", alt: "ทีมงานประชุมก่อนเริ่มงานในพื้นที่โรงงาน" },
+    { src: "/images/team/team-05.webp", alt: "ทีมงานเข้าแถวก่อนเริ่มงานในพื้นที่โรงงาน" },
+    { src: "/images/team/team-06.webp", alt: "ทีมช่างรับฟังการชี้แจงก่อนเริ่มงาน" },
+    { src: "/images/team/team-07.webp", alt: "ทีมงานเตรียมความพร้อมก่อนเริ่มงาน" },
+    { src: "/images/team/team-08.webp", alt: "หัวหน้างานชี้แจงรายละเอียดงานให้ทีมช่าง" },
+    { src: "/images/team/team-09.webp", alt: "ทีมงานเข้าแถวพร้อมอุปกรณ์ความปลอดภัย" },
+    { src: "/images/team/team-10.webp", alt: "ทีมงานหารือกันที่หน้างาน" },
+    { src: "/images/team/team-11.webp", alt: "ทีมงานพร้อมหมวกและเสื้อสะท้อนแสงที่หน้างาน" },
+    { src: "/images/team/team-12.webp", alt: "ทีมช่างเข้าแถวรับฟังการชี้แจงก่อนเริ่มงาน" },
   ],
 };
 
