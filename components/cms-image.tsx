@@ -13,8 +13,18 @@ export function CmsImageProvider({ value, children }: { value: Ctx; children: Re
 
 /**
  * next/image for design images an editor can replace. The key is the image's original path, so one
- * picture used on several pages changes everywhere. Article covers and work photos stay on next/image.
+ * picture used on several pages changes everywhere. Work photos are managed separately in /admin/works.
  */
+/** The current picture for a design image's original path, for places next/image can't go (video poster). */
+export function useCmsSrc(src: string) {
+  return useContext(ImageContext).overrides[src] ?? src;
+}
+
+/** A section background as a replaceable image. The section styles its own overlay on top (see .has-bg). */
+export function CmsBackground({ src }: { src: string }) {
+  return <CmsImage src={src} alt="" fill sizes="100vw" className="sec-bg" />;
+}
+
 export function CmsImage({ src, alt, ...rest }: ImageProps) {
   const { overrides, preview } = useContext(ImageContext);
   if (typeof src !== "string") return <Image src={src} alt={alt} {...rest} />;

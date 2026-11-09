@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CmsImage } from "@/components/cms-image";
 import Link from "next/link";
 import { formatDate, getPosts } from "@/lib/blog";
 import { getCopy } from "@/lib/cms/read";
@@ -18,7 +18,7 @@ export async function Blog() {
         <div className="b-grid">
           {posts.slice(0, 4).map((p) => (
             <Link href={`/blog/${p.slug}`} className="bp" key={p.slug}>
-              <Image src={p.cover} alt={p.coverAlt} width={500} height={313} sizes="(max-width: 900px) 50vw, 250px" />
+              <CmsImage src={p.cover} alt={p.coverAlt} width={500} height={313} sizes="(max-width: 900px) 50vw, 250px" />
               <div className="b">
                 <h4>{p.title}</h4>
                 <small>{formatDate(p.date)}</small>

@@ -37,6 +37,8 @@ export function CopyEditor({ page, label, path, entries, images: initialImages }
   const [active, setActive] = useState<string | null>(null);
   const [onPage, setOnPage] = useState<string[] | null>(null);
   const [onPageImages, setOnPageImages] = useState<string[]>([]);
+  const [workProject, setWorkProject] = useState<string | null>(null);
+  const workSlug = path.startsWith("/works/") ? path.slice("/works/".length) : null;
   const [q, setQ] = useState("");
   const [onlyEdited, setOnlyEdited] = useState(false);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
@@ -60,6 +62,7 @@ export function CopyEditor({ page, label, path, entries, images: initialImages }
         setActive(d.key);
         document.getElementById(`img-${d.key}`)?.scrollIntoView({ behavior: "smooth", block: "center" });
       }
+      if (d?.type === "cms:select-work" && d.key) setWorkProject(d.key);
       if (d?.type === "cms:ready") {
         setOnPage(d.keys ?? []);
         setOnPageImages(d.images ?? []);
@@ -218,6 +221,20 @@ export function CopyEditor({ page, label, path, entries, images: initialImages }
               เฉพาะจุดที่แก้แล้ว
             </label>
           </div>
+
+          {workSlug && (
+            <div className={`adm-works-link${workProject ? " on" : ""}`}>
+              <b>{workProject ? `รูปผลงาน "${workProject}"` : "รูปผลงานในหน้านี้"}</b>
+              เพิ่ม ลบ เปลี่ยน หรือเรียงรูปผลงานได้ที่หน้า &ldquo;รูปผลงาน&rdquo; (ขึ้นเว็บทันที ไม่ต้องกดเผยแพร่)
+              <br />
+              <a
+                href={`/admin/works/${workSlug}${workProject ? `?project=${encodeURIComponent(workProject)}` : ""}`}
+                className="adm-btn adm-btn-solid"
+              >
+                จัดการรูปผลงาน →
+              </a>
+            </div>
+          )}
 
           <ul className="adm-list">
             {own.map(field)}

@@ -1,3 +1,4 @@
+import { CmsBackground } from "@/components/cms-image";
 import { Icon } from "@/components/icons";
 import { getCopy } from "@/lib/cms/read";
 import { getSiteData } from "@/lib/site-data";
@@ -6,7 +7,8 @@ export async function Hotline() {
   const [{ hotline: c }, site] = await Promise.all([getCopy("home"), getSiteData()]);
   return (
     <>
-      <section className="hot">
+      <section className="hot has-bg">
+        <CmsBackground src="/images/shutter/warehouse.webp" />
         <div className="container">
           <h2>{c.title}</h2>
           <a href={site.phoneHref}>

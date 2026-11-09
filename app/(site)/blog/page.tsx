@@ -1,5 +1,5 @@
+import { CmsImage } from "@/components/cms-image";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { PageHead } from "@/components/page-head";
 import { formatDate, getPosts } from "@/lib/blog";
@@ -24,7 +24,7 @@ export default async function BlogPage() {
           <div className="wk-grid">
             {posts.map((p) => (
               <Link href={`/blog/${p.slug}`} className="wk-card bl-card" key={p.slug}>
-                <Image src={p.cover} alt={p.coverAlt} width={600} height={400} sizes="(max-width: 640px) 100vw, 340px" />
+                <CmsImage src={p.cover} alt={p.coverAlt} width={600} height={400} sizes="(max-width: 640px) 100vw, 340px" />
                 <div className="b">
                   <small>
                     {p.category} · {formatDate(p.date)}

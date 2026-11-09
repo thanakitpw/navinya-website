@@ -42,7 +42,7 @@ export default async function WorkCategoryPage({ params }: Props) {
             ))}
           </div>
           {(await getProjects(slug)).map((p) => (
-            <div className="proj" key={p.title}>
+            <div className="proj" key={p.title} data-work-project={p.title}>
               <h2>
                 {p.title}{" "}
                 <small>

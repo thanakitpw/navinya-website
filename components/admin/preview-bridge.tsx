@@ -27,6 +27,8 @@ export function PreviewBridge() {
       [data-cms-key]:hover { background: rgba(41,169,240,.18); outline-color: #1B3C8C; }
       [data-cms-active] { background: rgba(41,169,240,.28); outline: 2px solid #1B3C8C; }
       [data-cms-image][data-cms-hover] { outline: 2px solid #1B3C8C; }
+      [data-work-project] .gal img { outline: 1px dashed rgba(27,60,140,.55); outline-offset: -1px; cursor: pointer; }
+      [data-work-project] .gal button:hover img { outline: 2px solid #1B3C8C; }
       a[href], button { cursor: default; }
     `;
     document.head.appendChild(style);
@@ -117,6 +119,14 @@ export function PreviewBridge() {
         e.preventDefault();
         e.stopPropagation();
         window.parent.postMessage({ type: "cms:select", key: text.dataset.cmsKey }, window.location.origin);
+        return;
+      }
+      // Work photos are a managed collection, not single images: point the editor to their manager.
+      const work = target?.closest(".gal") ? target.closest<HTMLElement>("[data-work-project]") : null;
+      if (work) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.parent.postMessage({ type: "cms:select-work", key: work.dataset.workProject }, window.location.origin);
         return;
       }
       const image = target?.closest<HTMLElement>("[data-cms-image]") ?? imageAt(e.clientX, e.clientY);

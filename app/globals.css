@@ -81,7 +81,11 @@ nav.main .drop a:hover{background:var(--ice);color:var(--navy)}
 .intro p{text-align:left;margin-bottom:14px}
 
 /* ---------- Services box ---------- */
-.svc-box{background:linear-gradient(rgba(27,60,140,.92),rgba(18,41,107,.95)),url('/images/construction/thonglor-parking.webp') center/cover;padding:56px 22px 0;color:#fff;text-align:center}
+/* Section backgrounds are real <img> layers so editors can replace them; the tint sits above. */
+.has-bg{position:relative;isolation:isolate}
+.has-bg::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--bg-overlay)}
+.has-bg>.sec-bg{z-index:-2;object-fit:cover}
+.svc-box{--bg-overlay:linear-gradient(rgba(27,60,140,.92),rgba(18,41,107,.95));padding:56px 22px 0;color:#fff;text-align:center}
 .svc-box h2{font-size:clamp(32px,4.4vw,50px);font-weight:700;line-height:1.25}
 .svc-box h2 span{color:var(--yellow)}
 .svc-box > p{max-width:780px;margin:10px auto 0;font-size:16px;opacity:.95}
@@ -231,7 +235,7 @@ button.vid::after{content:"";position:absolute;left:50%;top:50%;width:44px;heigh
 .team .car-arrow{color:#333;filter:none}
 
 /* ---------- Guarantee ---------- */
-.guar{background:linear-gradient(rgba(27,60,140,.9),rgba(27,60,140,.92)),url('/images/demolition/khaosan.webp') center/cover;padding:50px 0 50px;color:#fff}
+.guar{--bg-overlay:linear-gradient(rgba(27,60,140,.9),rgba(27,60,140,.92));padding:50px 0 50px;color:#fff}
 .guar .head{display:grid;grid-template-columns:1fr 1.3fr;gap:30px;align-items:start;margin-bottom:26px}
 .guar h2{font-size:clamp(28px,3.8vw,42px);font-weight:700;line-height:1.3}
 .guar h2 span{color:var(--sky-l);display:block}
@@ -245,7 +249,7 @@ button.vid::after{content:"";position:absolute;left:50%;top:50%;width:44px;heigh
 .g-card p{font-size:15px;line-height:1.55;margin:4px 0 12px}
 
 /* ---------- Hotline band ---------- */
-.hot{background:linear-gradient(rgba(255,199,44,.92),rgba(255,199,44,.92)),url('/images/shutter/warehouse.webp') center/cover;text-align:center;padding:50px 0 34px}
+.hot{--bg-overlay:linear-gradient(rgba(255,199,44,.92),rgba(255,199,44,.92));text-align:center;padding:50px 0 34px}
 .hot h2{color:var(--navy-dd);font-size:clamp(26px,3.8vw,42px);font-weight:700;margin-bottom:16px}
 .hot a{display:inline-flex;align-items:center;gap:10px;background:var(--navy-dd);color:#fff;font-weight:500;padding:8px 26px;border-radius:999px;font-size:17px;letter-spacing:.5px}
 .disc{text-align:center;color:var(--navy);font-weight:400;font-size:clamp(14px,1.6vw,17px);padding:18px 0 10px;line-height:1.6}

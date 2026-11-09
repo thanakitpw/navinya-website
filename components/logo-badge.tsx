@@ -1,10 +1,10 @@
-import Image from "next/image";
+import { CmsImage } from "./cms-image";
 import { site } from "@/lib/site";
 
 export function LogoBadge({ className, priority = false }: { className?: string; priority?: boolean }) {
   return (
     <div className={className ? `logo-badge ${className}` : "logo-badge"}>
-      <Image
+      <CmsImage
         src="/logo.webp"
         alt={site.company}
         width={240}

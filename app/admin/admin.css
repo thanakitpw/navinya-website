@@ -97,6 +97,36 @@ body:has(.adm){padding-bottom:0;overflow-x:auto}
 .adm-library .adm-library-close{grid-column:1/-1;aspect-ratio:auto;padding:6px;background:#fff;color:#1f2a44;font:inherit;font-size:12.5px}
 .adm-library .adm-hint{grid-column:1/-1;text-align:center}
 
+/* Work photos */
+.adm-btn-danger{color:#a61b1b}
+.adm-btn-danger:hover:not(:disabled){background:#fdecec;border-color:#f0b4b4}
+.adm-bar{position:sticky;top:0;z-index:5}
+.adm-works-body{max-width:none}
+.adm-work-new,.adm-proj{margin-bottom:18px;padding:16px 18px;border:1px solid #dbe5f1;border-radius:12px;background:#fff;scroll-margin:70px}
+.adm-proj.on{border-color:var(--sky);box-shadow:0 0 0 3px #d6ecff}
+.adm-work-new h2{font-size:15px;color:var(--navy-dd)}
+.adm-work-new-row{display:flex;gap:8px;margin-top:10px}
+.adm-proj-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:12px}
+.adm-proj-head h2{flex:1;min-width:220px;font-size:16px;color:var(--navy-dd)}
+.adm-proj-head h2 small{color:#64708a;font-size:12.5px;font-weight:400}
+.adm-proj-rename{display:flex;flex:1;min-width:260px;gap:6px}
+.adm-proj-tools{display:flex;flex-wrap:wrap;gap:6px}
+.adm-proj-tools .adm-btn{min-height:34px;padding:5px 12px}
+.adm-photos{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.adm-photos li{position:relative;border:1px solid #dfe6f0;border-radius:8px;background:#eef2f7;overflow:hidden}
+.adm-photos img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover}
+.adm-photo-no{position:absolute;top:6px;left:6px;padding:0 7px;border-radius:999px;background:rgba(18,41,107,.8);color:#fff;font-size:11.5px}
+.adm-photo-tools{display:flex;border-top:1px solid #dfe6f0;background:#fff}
+.adm-photo-tools button{flex:1;padding:6px 0;border:0;background:none;color:#1f2a44;font:inherit;font-size:12.5px;cursor:pointer}
+.adm-photo-tools button+button{border-left:1px solid #edf2f8}
+.adm-photo-tools button:hover:not(:disabled){background:#f0f8ff}
+.adm-photo-tools button:disabled{opacity:.35;cursor:not-allowed}
+.adm-photo-tools button.danger{color:#a61b1b}
+.adm-works-link{margin:12px 12px 0;padding:12px;border:1px solid #bfe0fb;border-radius:10px;background:#f0f8ff;font-size:13px}
+.adm-works-link.on{border-color:var(--sky);box-shadow:0 0 0 3px #d6ecff}
+.adm-works-link b{display:block;margin-bottom:2px}
+.adm-works-link .adm-btn{margin-top:8px}
+
 /* Narrow screens: stack the panels and let the page scroll. */
 @media (max-width:1100px){
   .adm-editor{height:auto}

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { CmsImage } from "@/components/cms-image";
 import Link from "next/link";
 import { Fragment } from "react";
 import { getPosts } from "@/lib/blog";
@@ -34,7 +34,7 @@ export async function Footer() {
           <ul className="posts">
             {posts.slice(0, 3).map((p) => (
               <li key={p.slug}>
-                <Image src={p.cover} alt="" width={36} height={36} />
+                <CmsImage src={p.cover} alt="" width={36} height={36} />
                 <Link href={`/blog/${p.slug}`}>{p.title}</Link>
               </li>
             ))}

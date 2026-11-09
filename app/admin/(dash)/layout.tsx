@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { AdminNav } from "@/components/admin/admin-nav";
 import { SignOutButton } from "@/components/admin/sign-out-button";
 import { currentCmsUser, serverClient } from "@/lib/cms/server";
 
@@ -26,11 +26,7 @@ export default async function DashLayout({ children }: { children: React.ReactNo
           <p className="adm-brand">NAVINYA 1979</p>
           <p className="adm-side-title">ระบบจัดการเนื้อหา</p>
         </div>
-        <nav className="adm-nav">
-          <Link href="/admin/copy" className="on">
-            ข้อความและรูปในหน้าเว็บ
-          </Link>
-        </nav>
+        <AdminNav />
         <div className="adm-side-foot">
           <a href="/" target="_blank" rel="noopener" className="adm-side-link">
             ↗ ดูเว็บไซต์จริง

@@ -1,4 +1,4 @@
-import { CmsImage } from "@/components/cms-image";
+import { CmsBackground, CmsImage } from "@/components/cms-image";
 import { getCopy } from "@/lib/cms/read";
 import { getSiteData } from "@/lib/site-data";
 
@@ -7,7 +7,8 @@ export async function Services() {
   return (
     <section id="services">
       <div className="container">
-        <div className="svc-box">
+        <div className="svc-box has-bg">
+          <CmsBackground src="/images/construction/thonglor-parking.webp" />
           <h2>
             {c.title}
             <span>{c.accent}</span>

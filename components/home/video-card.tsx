@@ -1,18 +1,19 @@
 "use client";
 
-import { CmsImage } from "@/components/cms-image";
+import { CmsImage, useCmsSrc } from "@/components/cms-image";
 import { useState } from "react";
 import { videoSrc, type Video } from "@/lib/videos";
 
 // Shows the poster until clicked, so no video bytes load with the page.
 function VideoItem({ v }: { v: Video }) {
   const [playing, setPlaying] = useState(false);
+  const poster = useCmsSrc(v.poster);
   const cls = v.vertical ? "vid v" : "vid";
 
   if (playing) {
     return (
       <div className={cls}>
-        <video src={videoSrc(v.file)} poster={v.poster} controls autoPlay playsInline />
+        <video src={videoSrc(v.file)} poster={poster} controls autoPlay playsInline />
       </div>
     );
   }

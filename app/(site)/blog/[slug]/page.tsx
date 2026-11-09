@@ -1,5 +1,5 @@
+import { CmsImage } from "@/components/cms-image";
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageHead } from "@/components/page-head";
@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="works">
         <div className="container bl-layout">
           <article className="ct-card bl-article">
-            <Image src={post.cover} alt={post.coverAlt} width={1600} height={1000} sizes="(max-width: 900px) 100vw, 720px" preload />
+            <CmsImage src={post.cover} alt={post.coverAlt} width={1600} height={1000} sizes="(max-width: 900px) 100vw, 720px" preload />
             {/* Article HTML comes from Markdown in the posts table, which only staff can write. */}
             <div className="prose" dangerouslySetInnerHTML={{ __html: html }} />
           </article>

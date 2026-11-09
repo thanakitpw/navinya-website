@@ -1,11 +1,12 @@
-import { CmsImage } from "@/components/cms-image";
+import { CmsBackground, CmsImage } from "@/components/cms-image";
 import { Rich } from "@/components/rich";
 import { getCopy } from "@/lib/cms/read";
 
 export async function Guarantee() {
   const { guarantee: c } = await getCopy("home");
   return (
-    <section className="guar">
+    <section className="guar has-bg">
+      <CmsBackground src="/images/demolition/khaosan.webp" />
       <div className="container">
         <div className="head">
           <div>
