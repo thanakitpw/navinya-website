@@ -1,4 +1,5 @@
 import { PreviewBridge } from "@/components/admin/preview-bridge";
+import { Analytics } from "@/components/analytics";
 import { BottomBar } from "@/components/bottom-bar";
 import { CmsImageProvider } from "@/components/cms-image";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -28,7 +29,8 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
       />
       <BottomBar />
       <CookieConsent copy={site.cookie} />
-      {preview && <PreviewBridge />}
+      {/* Editors previewing drafts would count as visitors and leads, so they are not tracked. */}
+      {preview ? <PreviewBridge /> : <Analytics />}
     </CmsImageProvider>
   );
 }

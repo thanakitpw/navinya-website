@@ -2,9 +2,9 @@
 
 import { useState, useSyncExternalStore } from "react";
 import type { globalCopy } from "@/lib/content/global";
+import { readConsent, saveConsent } from "@/lib/tracking";
 import { Icon } from "./icons";
 
-const CONSENT_KEY = "navinya-cookie-consent";
 const DISMISSED_KEY = "navinya-cookie-dismissed";
 
 const subscribe = () => () => {};
@@ -12,7 +12,7 @@ const subscribe = () => () => {};
 // Storage can throw in private windows or when site data is blocked; the notice still has to work.
 function needsAnswer() {
   try {
-    return !localStorage.getItem(CONSENT_KEY) && !sessionStorage.getItem(DISMISSED_KEY);
+    return !readConsent() && !sessionStorage.getItem(DISMISSED_KEY);
   } catch {
     return true;
   }
@@ -30,13 +30,12 @@ export function CookieConsent({ copy }: { copy: typeof globalCopy.cookie }) {
   const [closed, setClosed] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [analytics, setAnalytics] = useState(false);
+  const [marketing, setMarketing] = useState(false);
 
   if (!pending || closed) return null;
 
-  const save = (allowAnalytics: boolean) => {
-    remember(() =>
-      localStorage.setItem(CONSENT_KEY, JSON.stringify({ analytics: allowAnalytics, at: new Date().toISOString() })),
-    );
+  const save = (allowAnalytics: boolean, allowMarketing: boolean) => {
+    saveConsent({ analytics: allowAnalytics, marketing: allowMarketing });
     setClosed(true);
   };
 
@@ -84,15 +83,27 @@ export function CookieConsent({ copy }: { copy: typeof globalCopy.cookie }) {
               onChange={(e) => setAnalytics(e.target.checked)}
             />
           </label>
+          <label className="cc-row">
+            <div>
+              <b>{copy.marketingTitle}</b>
+              <p>{copy.marketingText}</p>
+            </div>
+            <input
+              type="checkbox"
+              className="cc-switch"
+              checked={marketing}
+              onChange={(e) => setMarketing(e.target.checked)}
+            />
+          </label>
         </div>
       )}
       <div className="cc-actions">
         {settingsOpen && (
-          <button type="button" className="cc-save" onClick={() => save(analytics)}>
+          <button type="button" className="cc-save" onClick={() => save(analytics, marketing)}>
             {copy.save}
           </button>
         )}
-        <button type="button" className="cc-accept" onClick={() => save(true)}>
+        <button type="button" className="cc-accept" onClick={() => save(true, true)}>
           {copy.accept}
         </button>
       </div>

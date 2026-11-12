@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import type { contactCopy } from "@/lib/content/pages";
 import { supabase } from "@/lib/supabase";
+import { toE164, track } from "@/lib/tracking";
 
 const maxFiles = 10;
 const maxFileSize = 10 * 1024 * 1024;
@@ -84,8 +85,16 @@ export function QuoteForm({ copy, jobTypes, company, line, lineHref, phone, phon
     e.preventDefault();
     setStatus("sending");
     try {
-      await submit(new FormData(e.currentTarget));
+      const form = new FormData(e.currentTarget);
+      await submit(form);
       setStatus("sent");
+      // The Google Ads lead conversion; user_data feeds enhanced conversions (Google hashes it, and only uses it with ad consent).
+      track("generate_lead", {
+        form_name: "quote",
+        job_type: text(form, "job") ?? undefined,
+        contact_channel: text(form, "channel") ?? undefined,
+        user_data: { email: text(form, "email") ?? undefined, phone_number: toE164(text(form, "phone")) },
+      });
     } catch (err) {
       setError(err instanceof Error ? err.message : "ส่งข้อมูลไม่สำเร็จ");
       setStatus("error");
