@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
 import type { contactCopy } from "@/lib/content/pages";
 import { supabase } from "@/lib/supabase";
 import { toE164, track } from "@/lib/tracking";
@@ -80,6 +80,14 @@ export function QuoteForm({ copy, jobTypes, company, line, lineHref, phone, phon
   const contact = { copy, line, lineHref, phone, phoneHref };
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
+  const started = useRef(false);
+
+  // Reported once, on the first field the visitor touches, so drop-off between starting and sending shows up.
+  function onStart() {
+    if (started.current) return;
+    started.current = true;
+    track("form_start", { form_name: "quote" });
+  }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -112,7 +120,7 @@ export function QuoteForm({ copy, jobTypes, company, line, lineHref, phone, phon
   }
 
   return (
-    <form className="qf" onSubmit={onSubmit}>
+    <form className="qf" onSubmit={onSubmit} onFocus={onStart}>
       <div className="qf-row">
         <label>
           <span>
